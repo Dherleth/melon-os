@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://2mndxclsoo8a"]
+
+[ext_resource type="Script" uid="uid://d3u7c4fmmblx6" path="res://os/core/os_desktop.gd" id="1_aa36d"]
+[ext_resource type="PackedScene" uid="uid://bsjgarc8up23j" path="res://os/core/app_icon.tscn" id="2_jrrce"]
+
+[node name="Desktop" type="PanelContainer" unique_id=1775418142]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_aa36d")
+app_icon_scene = ExtResource("2_jrrce")
+
+[node name="AppContainer" type="Control" parent="." unique_id=1368133106]
+layout_mode = 2

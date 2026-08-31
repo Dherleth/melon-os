@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://lilq36fnlmsl"]
+
+[ext_resource type="Script" uid="uid://5spqy7flk1tj" path="res://os/core/os_window/os_window_manager.gd" id="1_3nw4v"]
+[ext_resource type="Script" uid="uid://coaklct32fwph" path="res://os/core/os_system.gd" id="1_5peix"]
+[ext_resource type="Resource" uid="uid://beu562sw1tbus" path="res://os/resources/operating_systems/my_os.tres" id="2_7hvsw"]
+[ext_resource type="Script" uid="uid://cjtmlel3irb1x" path="res://os/core/app_manager.gd" id="5_ixm4g"]
+[ext_resource type="PackedScene" uid="uid://2mndxclsoo8a" path="res://os/core/desktop.tscn" id="6_lwwl0"]
+
+[node name="OsSystem" type="Control" unique_id=1276379304]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5peix")
+definition = ExtResource("2_7hvsw")
+
+[node name="WindowManager" type="Control" parent="." unique_id=576897537]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3nw4v")
+
+[node name="AppManager" type="Control" parent="." unique_id=345274571]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("5_ixm4g")
+
+[node name="Desktop" parent="." unique_id=1968056282 instance=ExtResource("6_lwwl0")]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.096354164
+grow_horizontal = 1
+metadata/_edit_use_anchors_ = true

@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bsjgarc8up23j"]
+
+[ext_resource type="Script" uid="uid://dv2toc8me3bb1" path="res://os/core/app_icon.gd" id="1_f5sxe"]
+
+[node name="AppIcon" type="Button" unique_id=961408958]
+custom_minimum_size = Vector2(100, 100)
+text = "Terminal"
+script = ExtResource("1_f5sxe")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2090913795]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Sprite2D" type="Sprite2D" parent="VBoxContainer" unique_id=1838335374]
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=1528951253]
+layout_mode = 2

@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://c4mcqytljnpgr"]
+
+[ext_resource type="Script" uid="uid://bhvh12mfbxnj3" path="res://os/core/os_window/os_window.gd" id="1_4bawu"]
+
+[node name="OsWindow" type="PanelContainer" unique_id=1959368544]
+custom_minimum_size = Vector2(300, 200)
+script = ExtResource("1_4bawu")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1866413373]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="TitleBar" type="PanelContainer" parent="VBoxContainer" unique_id=1050598519]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/TitleBar" unique_id=904419832]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="VBoxContainer/TitleBar/HBoxContainer" unique_id=1677877467]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Title"
+
+[node name="MinimizeButton" type="Button" parent="VBoxContainer/TitleBar/HBoxContainer" unique_id=1679464690]
+layout_mode = 2
+text = "_"
+
+[node name="CloseButton" type="Button" parent="VBoxContainer/TitleBar/HBoxContainer" unique_id=1275572600]
+layout_mode = 2
+text = "x"
+alignment = 2
+
+[node name="AppContainer" type="PanelContainer" parent="VBoxContainer" unique_id=1401684132]
+layout_mode = 2
+size_flags_vertical = 3
+
+[connection signal="pressed" from="VBoxContainer/TitleBar/HBoxContainer/MinimizeButton" to="." method="_on_minimize_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/TitleBar/HBoxContainer/CloseButton" to="." method="_on_close_button_pressed"]
