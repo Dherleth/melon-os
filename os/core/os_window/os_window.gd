@@ -5,10 +5,11 @@ signal drag_started(window: OsWindow)
 signal drag_moved(window: OsWindow)
 signal drag_ended(window: OsWindow)
 signal clicked(window: OsWindow)
+signal focused(window: OsWindow)
 signal minimized(window: OsWindow)
 signal closed(window: OsWindow)
 
-var app: OsApp
+var app_instance: OsAppScene
 var dragging := false
 
 @onready var title_bar: PanelContainer = $VBoxContainer/TitleBar
@@ -21,12 +22,13 @@ func _ready() -> void:
 	title_bar.gui_input.connect(_on_title_bar_gui_input)
 
 
-func setup(app_definition: OsAppDefinition) -> void:
-	title_label.text = app_definition.name
-	size = app_definition.default_size
-	app = app_definition.scene.instantiate()
-	app_container.add_child(app)
-	app.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+func setup(app_instance_p: OsAppScene) -> void:
+	app_instance = app_instance_p
+	title_label.text = app_instance.app_definition.name
+	size = app_instance.app_definition.default_size
+	app_instance.os_window = self
+	app_container.add_child(app_instance)
+	app_instance.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	
 
 func _on_gui_input(event: InputEvent) -> void:
@@ -51,10 +53,23 @@ func _on_title_bar_gui_input(event: InputEvent) -> void:
 
 
 func _on_minimize_button_pressed() -> void:
-	hide()
-	minimized.emit(self)
+	minimize()
 
 
 func _on_close_button_pressed() -> void:
+	close()
+
+
+func focus() -> void:
+	show()
+	focused.emit(self)
+	
+
+func minimize() -> void:
+	hide()
+	minimized.emit(self)
+	
+	
+func close() -> void:
 	hide()
 	closed.emit(self)

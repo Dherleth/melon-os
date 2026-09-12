@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dbop60mi5qu3e"]
+
+[ext_resource type="Script" uid="uid://cqo6hiweqkt0y" path="res://os/core/os_window_manager/os_window_container.gd" id="1_hxqtp"]
+
+[node name="OsWindowContainer" type="Control" unique_id=569395539]
+layout_mode = 3
+anchors_preset = 0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hxqtp")
+metadata/_edit_use_anchors_ = true

@@ -1,16 +1,18 @@
-class_name AppManager
-extends Container
+class_name OsAppManager
+extends Node
 
-var window_scene: PackedScene = preload("res://os/core/os_window/os_window.tscn")
 var available_apps: Dictionary[StringName, OsAppDefinition] = {}
-var running_apps: Array[OsApp] = []
+var running_apps: Array[OsAppScene] = []
+var windows_container: OsWindowsContainer
+var task_bar: OsTaskBar
+
 
 
 func register_app(definition: OsAppDefinition) -> void:
 	available_apps[definition.id] = definition
 	
 	
-func launch_app(app_id: StringName) -> OsApp:
+func launch_app(app_id: StringName) -> OsAppScene:
 	if not available_apps.has(app_id):
 		return null
 
@@ -20,40 +22,31 @@ func launch_app(app_id: StringName) -> OsApp:
 		var existing := _get_running_instance(app_id)
 
 		if existing:
-			_focus_window(existing.window)
+			if windows_container:
+				windows_container.focus_window(existing.os_window)
 			return existing
-
-	var window := _open_window(definition)
+			
+	var app_instance = definition.scene.instantiate() as OsAppScene
+	app_instance.app_definition = definition
 	
-	var app := window.app
-	app.window = window
-	running_apps.append(app)
+	running_apps.append(app_instance)
+	
+	if windows_container:
+		windows_container.open_window(app_instance)
+		
+	if task_bar:
+		task_bar.add_app_button(app_instance)
 
-	return app
+	return app_instance
+	
 
+func close_app(app_instance: OsAppScene) -> void:
+	running_apps.erase(app_instance)
+	
 
-func _get_running_instance(app_id: StringName) -> OsApp:
+func _get_running_instance(app_id: StringName) -> OsAppScene:
 	for app in running_apps:
-		if app.definition.id == app_id:
+		if app.app_definition.id == app_id:
 			return app
 
 	return null
-
-	
-func _open_window(app_definition: OsAppDefinition) -> OsWindow:
-	var window := window_scene.instantiate() as OsWindow
-	add_child(window)
-	window.setup(app_definition)
-	window.closed.connect(_on_window_closed)
-	_focus_window(window)
-
-	return window
-
-
-func _focus_window(window: OsWindow) -> void:
-	move_child(window, get_child_count() - 1)
-	
-
-func _on_window_closed(window: OsWindow) -> void:
-	running_apps.erase(window.app)
-	window.queue_free()

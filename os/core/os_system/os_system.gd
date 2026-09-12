@@ -1,16 +1,9 @@
-class_name OSSystem
-extends Control
+extends Node
 
-@export var definition: OSSystemDefinition
+var os_definition: OSSystemDefinition = preload("res://os/data/os/melon_os_definiton.tres")
 
-@onready var app_manager: AppManager = $AppManager
-@onready var desktop: OSDesktop = $Desktop
-
+var app_manager: OsAppManager = OsAppManager.new()
 
 func _ready() -> void:
-	for app_definition in definition.apps:
+	for app_definition in os_definition.apps:
 		app_manager.register_app(app_definition)
-
-
-func launch_app(app_id: StringName) -> OsApp:
-	return app_manager.launch(app_id)

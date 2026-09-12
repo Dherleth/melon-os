@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="OsAppDefinition" format=3 uid="uid://ddgo6flmur4it"]
+
+[ext_resource type="Script" uid="uid://byd2cixpj61b3" path="res://os/core/os_app/os_app_definition.gd" id="1_rodtw"]
+
+[resource]
+script = ExtResource("1_rodtw")
+id = &"file_explorer"
+name = "Explorer"
+metadata/_custom_type_script = "uid://byd2cixpj61b3"
