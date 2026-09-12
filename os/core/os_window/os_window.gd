@@ -1,7 +1,6 @@
 class_name OsWindow
 extends PanelContainer
 
-
 signal drag_started(window: OsWindow)
 signal drag_moved(window: OsWindow)
 signal drag_ended(window: OsWindow)
@@ -52,8 +51,10 @@ func _on_title_bar_gui_input(event: InputEvent) -> void:
 
 
 func _on_minimize_button_pressed() -> void:
+	hide()
 	minimized.emit(self)
 
 
 func _on_close_button_pressed() -> void:
+	hide()
 	closed.emit(self)

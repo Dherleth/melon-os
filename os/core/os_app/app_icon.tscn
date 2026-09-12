@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bsjgarc8up23j"]
 
-[ext_resource type="Script" uid="uid://dv2toc8me3bb1" path="res://os/core/app_icon.gd" id="1_f5sxe"]
+[ext_resource type="Script" uid="uid://dv2toc8me3bb1" path="res://os/core/os_app/app_icon.gd" id="1_f5sxe"]
 
 [node name="AppIcon" type="Button" unique_id=961408958]
 custom_minimum_size = Vector2(100, 100)

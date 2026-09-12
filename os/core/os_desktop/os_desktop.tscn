@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://2mndxclsoo8a"]
 
-[ext_resource type="Script" uid="uid://d3u7c4fmmblx6" path="res://os/core/os_desktop.gd" id="1_aa36d"]
-[ext_resource type="PackedScene" uid="uid://bsjgarc8up23j" path="res://os/core/app_icon.tscn" id="2_jrrce"]
+[ext_resource type="Script" uid="uid://d3u7c4fmmblx6" path="res://os/core/os_desktop/os_desktop.gd" id="1_aa36d"]
+[ext_resource type="PackedScene" uid="uid://bsjgarc8up23j" path="res://os/core/os_app/app_icon.tscn" id="2_jrrce"]
 
 [node name="Desktop" type="PanelContainer" unique_id=1775418142]
 anchors_preset = 15

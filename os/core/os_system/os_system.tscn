@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://lilq36fnlmsl"]
+
+[ext_resource type="Script" uid="uid://coaklct32fwph" path="res://os/core/os_system/os_system.gd" id="1_l4gxm"]
+[ext_resource type="Resource" uid="uid://beu562sw1tbus" path="res://os/data/melon_os_definiton.tres" id="2_fuj6k"]
+
+[node name="OsSystem" type="Control" unique_id=1276379304]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l4gxm")
+definition = ExtResource("2_fuj6k")
