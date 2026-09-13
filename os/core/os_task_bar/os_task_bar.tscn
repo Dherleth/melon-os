@@ -24,3 +24,8 @@ icon = ExtResource("2_8jesn")
 
 [node name="AppButtonsContainer" type="HBoxContainer" parent="HBoxContainer" unique_id=408461945]
 layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TimeButton" type="Button" parent="HBoxContainer" unique_id=913522020]
+layout_mode = 2
+text = "00:00"

@@ -2,9 +2,15 @@ class_name OsTaskBar
 extends PanelContainer
 
 @onready var app_buttons_container: HBoxContainer = $HBoxContainer/AppButtonsContainer
+@onready var time_button: Button = $HBoxContainer/TimeButton
 
 var app_button_scene: PackedScene = preload("res://os/core/os_task_bar/app_button/os_task_bar_app_button.tscn")
-	
+
+
+func _process(_delta: float) -> void:
+	time_button.text = str(Time.get_time_dict_from_system()["hour"]) + ":" + str(Time.get_time_dict_from_system()["minute"]).pad_zeros(2)
+
+
 func add_app_button(app_instance: OsAppScene) -> void:
 	var app_button := app_button_scene.instantiate() as OsTaskBarAppButton
 	app_button.setup(app_instance.app_definition.icon, app_instance.os_window)
