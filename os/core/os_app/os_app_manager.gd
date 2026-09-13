@@ -3,9 +3,9 @@ extends Node
 
 var available_apps: Dictionary[StringName, OsAppDefinition] = {}
 var running_apps: Array[OsAppScene] = []
+
 var windows_container: OsWindowsContainer
 var task_bar: OsTaskBar
-
 
 
 func register_app(definition: OsAppDefinition) -> void:
@@ -32,7 +32,9 @@ func launch_app(app_id: StringName) -> OsAppScene:
 	running_apps.append(app_instance)
 	
 	if windows_container:
-		windows_container.open_window(app_instance)
+		var app_window := windows_container.open_window(app_instance)
+		app_window.closed.connect(_on_app_window_closed)
+		app_window.focused.connect(_on_app_window_focused)
 		
 	if task_bar:
 		task_bar.add_app_button(app_instance)
@@ -42,6 +44,15 @@ func launch_app(app_id: StringName) -> OsAppScene:
 
 func close_app(app_instance: OsAppScene) -> void:
 	running_apps.erase(app_instance)
+	
+
+func _on_app_window_closed(app_window: OsWindow) -> void:
+	close_app(app_window.app_instance)
+	
+
+func _on_app_window_focused(app_window: OsWindow) -> void:
+	windows_container.focus_window(app_window)
+	task_bar.set_app_buttons_focus(app_window)
 	
 
 func _get_running_instance(app_id: StringName) -> OsAppScene:

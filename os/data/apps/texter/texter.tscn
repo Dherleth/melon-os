@@ -11,13 +11,19 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_c5rpp")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=496379686]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1572819239]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 20
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer" unique_id=496379686]
+layout_mode = 2
+focus_mode = 2
+theme_override_colors/selection_color = Color(0.821299, 0.4198246, 0.42940268, 0.8)
 bbcode_enabled = true
 text = "[font_size=50]Cupcake Ipsum[/font_size]
 
@@ -28,4 +34,10 @@ Danish donut danish chocolate cake gingerbread sesame snaps jelly ice cream appl
 
 Caramels candy canes bear claw fruitcake donut cake jelly beans jelly beans gummi bears. Dragée cake apple pie marzipan liquorice topping cupcake donut. Apple pie pastry caramels macaroon carrot cake dessert. Sugar plum donut oat cake donut shortbread brownie. Chocolate jujubes sugar plum pie wafer brownie toffee caramels. Sweet candy canes tart macaroon cheesecake chocolate bar cake. Jelly oat cake toffee tootsie roll sweet sugar plum pastry donut liquorice. Gummi bears carrot cake cupcake wafer gummi bears cotton candy jelly. Brownie pie toffee marshmallow cupcake gingerbread. Apple pie ice cream brownie bonbon sesame snaps toffee gummi bears croissant chupa chups. Carrot cake cake cake halvah icing. Tiramisu powder pudding halvah brownie donut. Tootsie roll chocolate bar pie sweet roll biscuit ice cream tiramisu sesame snaps soufflé.
 
-Sweet roll candy canes candy bear claw chupa chups muffin candy canes toffee gummies. Bear claw sugar plum sugar plum tiramisu pie danish shortbread dragée chocolate cake. Dragée powder pastry danish cake tart sweet roll. Topping fruitcake tootsie roll croissant marzipan pastry. Powder macaroon jelly-o cotton candy sugar plum bear claw marshmallow. Apple pie apple pie dragée pastry pie tart muffin pastry lemon drops. Ice cream donut cotton candy dragée marzipan tootsie roll. Oat cake sugar plum jelly cupcake jelly beans toffee candy chocolate cake pudding. Carrot cake biscuit tiramisu sesame snaps gingerbread gummi bears oat cake candy. Donut liquorice soufflé cupcake tootsie roll sesame snaps macaroon. Cheesecake muffin jujubes muffin fruitcake caramels bonbon topping. Dessert bear claw carrot cake powder apple pie chocolate. Gummi bears lollipop biscuit jelly beans lollipop donut bonbon chocolate."
+Sweet roll candy canes candy bear claw chupa chups muffin candy canes toffee gummies. Bear claw sugar plum sugar plum tiramisu pie danish shortbread dragée chocolate cake. Dragée powder pastry danish cake tart sweet roll. Topping fruitcake tootsie roll croissant marzipan pastry. Powder macaroon jelly-o cotton candy sugar plum bear claw marshmallow. Apple pie apple pie dragée pastry pie tart muffin pastry lemon drops. Ice cream donut cotton candy dragée marzipan tootsie roll. Oat cake sugar plum jelly cupcake jelly beans toffee candy chocolate cake pudding. Carrot cake biscuit tiramisu sesame snaps gingerbread gummi bears oat cake candy. Donut liquorice soufflé cupcake tootsie roll sesame snaps macaroon. Cheesecake muffin jujubes muffin fruitcake caramels bonbon topping. Dessert bear claw carrot cake powder apple pie chocolate. Gummi bears lollipop biscuit jelly beans lollipop donut bonbon chocolate.
+
+"
+context_menu_enabled = true
+selection_enabled = true
+
+[connection signal="gui_input" from="MarginContainer/RichTextLabel" to="." method="_on_rich_text_label_gui_input"]

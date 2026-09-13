@@ -1,9 +1,31 @@
 [gd_scene format=3 uid="uid://c4mcqytljnpgr"]
 
 [ext_resource type="Script" uid="uid://bhvh12mfbxnj3" path="res://os/core/os_window/os_window.gd" id="1_4bawu"]
+[ext_resource type="Texture2D" uid="uid://dgcf5jm1mkxu8" path="res://os/core/os_window/minimize_icon.png" id="2_ownac"]
+[ext_resource type="Texture2D" uid="uid://c7pre5v0mjbgf" path="res://os/core/os_window/close_icon.png" id="3_0eyqj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0eyqj"]
+bg_color = Color(0.91764706, 0.6, 0.6, 0.7294118)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4mv1j"]
+bg_color = Color(0.7172357, 0.3128042, 0.33179274, 0.7294118)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rdul2"]
+bg_color = Color(0.84459317, 0.42967534, 0.44166446, 0.7294118)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ownac"]
+bg_color = Color(0.8784314, 0.05882353, 0.28627452, 0.77254903)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vbmof"]
+bg_color = Color(0.519133, 0.012608259, 0.15381175, 0.77254903)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7btmh"]
+bg_color = Color(0.70980394, 0.02745098, 0.22352941, 0.77254903)
 
 [node name="OsWindow" type="PanelContainer" unique_id=1959368544]
 custom_minimum_size = Vector2(300, 200)
+offset_right = 300.0
+offset_bottom = 200.0
 script = ExtResource("1_4bawu")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1866413373]
@@ -11,28 +33,53 @@ layout_mode = 2
 theme_override_constants/separation = 0
 
 [node name="TitleBar" type="PanelContainer" parent="VBoxContainer" unique_id=1050598519]
+custom_minimum_size = Vector2(0, 30)
+custom_maximum_size = Vector2(-1, 30)
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/TitleBar" unique_id=904419832]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/TitleBar" unique_id=669566922]
 layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
 
-[node name="Title" type="Label" parent="VBoxContainer/TitleBar/HBoxContainer" unique_id=1677877467]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/TitleBar/MarginContainer" unique_id=904419832]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Title" type="Label" parent="VBoxContainer/TitleBar/MarginContainer/HBoxContainer" unique_id=1677877467]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 1
 text = "Title"
+vertical_alignment = 1
+clip_text = true
+text_overrun_behavior = 5
 
-[node name="MinimizeButton" type="Button" parent="VBoxContainer/TitleBar/HBoxContainer" unique_id=1679464690]
+[node name="MinimizeButton" type="Button" parent="VBoxContainer/TitleBar/MarginContainer/HBoxContainer" unique_id=1679464690]
+custom_minimum_size = Vector2(20, 20)
+custom_maximum_size = Vector2(20, 20)
 layout_mode = 2
-text = "_"
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_0eyqj")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4mv1j")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rdul2")
+icon = ExtResource("2_ownac")
+icon_alignment = 1
 
-[node name="CloseButton" type="Button" parent="VBoxContainer/TitleBar/HBoxContainer" unique_id=1275572600]
+[node name="CloseButton" type="Button" parent="VBoxContainer/TitleBar/MarginContainer/HBoxContainer" unique_id=1275572600]
+custom_minimum_size = Vector2(20, 20)
+custom_maximum_size = Vector2(20, 20)
 layout_mode = 2
-text = "x"
-alignment = 2
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_ownac")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_vbmof")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7btmh")
+icon = ExtResource("3_0eyqj")
+icon_alignment = 1
 
 [node name="AppContainer" type="PanelContainer" parent="VBoxContainer" unique_id=1401684132]
 layout_mode = 2
 size_flags_vertical = 3
 
-[connection signal="pressed" from="VBoxContainer/TitleBar/HBoxContainer/MinimizeButton" to="." method="_on_minimize_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/TitleBar/HBoxContainer/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/TitleBar/MarginContainer/HBoxContainer/MinimizeButton" to="." method="_on_minimize_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/TitleBar/MarginContainer/HBoxContainer/CloseButton" to="." method="_on_close_button_pressed"]

@@ -14,10 +14,6 @@ config/name="MelonOs"
 run/main_scene="uid://lilq36fnlmsl"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 
-[autoload]
-
-OsSystem="*uid://coaklct32fwph"
-
 [display]
 
 window/size/viewport_width=1920

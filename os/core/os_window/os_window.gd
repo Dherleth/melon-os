@@ -13,7 +13,7 @@ var app_instance: OsAppScene
 var dragging := false
 
 @onready var title_bar: PanelContainer = $VBoxContainer/TitleBar
-@onready var title_label: Label = $VBoxContainer/TitleBar/HBoxContainer/Title
+@onready var title_label: Label = $VBoxContainer/TitleBar/MarginContainer/HBoxContainer/Title
 @onready var app_container: PanelContainer = $VBoxContainer/AppContainer
 
 
@@ -29,12 +29,19 @@ func setup(app_instance_p: OsAppScene) -> void:
 	app_instance.os_window = self
 	app_container.add_child(app_instance)
 	app_instance.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	app_instance.focused.connect(_on_app_focused)
 	
 
 func _on_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+			focused.emit(self)
 			clicked.emit(self)
+			
+			
+func _on_app_focused(app_instance: OsAppScene) -> void:
+	focused.emit(self)
+	clicked.emit(self)
 			
 
 func _on_title_bar_gui_input(event: InputEvent) -> void:
@@ -42,6 +49,7 @@ func _on_title_bar_gui_input(event: InputEvent) -> void:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			if event.pressed:
 				dragging = true
+				focused.emit(self)
 				drag_started.emit(event.position)
 			else:
 				dragging = false
@@ -49,6 +57,7 @@ func _on_title_bar_gui_input(event: InputEvent) -> void:
 
 	elif event is InputEventMouseMotion and dragging:
 		position += event.relative
+		focused.emit(self)
 		drag_moved.emit(event.relative)
 
 
@@ -73,3 +82,5 @@ func minimize() -> void:
 func close() -> void:
 	hide()
 	closed.emit(self)
+	queue_free()
+	
