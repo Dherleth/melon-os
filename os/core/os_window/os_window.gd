@@ -24,7 +24,7 @@ func _ready() -> void:
 
 func setup(app_instance_p: OsAppScene) -> void:
 	app_instance = app_instance_p
-	title_label.text = app_instance.app_definition.name
+	title_label.text = app_instance.get_window_name()
 	size = app_instance.app_definition.default_size
 	app_instance.os_window = self
 	app_container.add_child(app_instance)

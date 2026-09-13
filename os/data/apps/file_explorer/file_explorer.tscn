@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://be1mvvn43le1e"]
+
+[ext_resource type="Script" uid="uid://ccjkthrdo4wpc" path="res://os/data/apps/file_explorer/file_explorer.gd" id="1_b55kx"]
+
+[node name="FileExplorer" type="Control" unique_id=879777946]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_b55kx")
+metadata/_custom_type_script = "uid://b5wuw0pu8lp2o"

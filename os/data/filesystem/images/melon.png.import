@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://jdeo5x4gw7ii"
-path="res://.godot/imported/default_icon.png-5334b5b9c90ec4efa994aed8879efa6a.ctex"
+uid="uid://cwo753yxhad1u"
+path="res://.godot/imported/melon.png-2a054400cabd8994bc704c8cb685dabd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://os/data/apps/default_icon.png"
-dest_files=["res://.godot/imported/default_icon.png-5334b5b9c90ec4efa994aed8879efa6a.ctex"]
+source_file="res://os/data/filesystem/images/melon.png"
+dest_files=["res://.godot/imported/melon.png-2a054400cabd8994bc704c8cb685dabd.ctex"]
 
 [params]
 

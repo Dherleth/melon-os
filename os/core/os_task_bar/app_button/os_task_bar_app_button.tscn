@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b7ldfvco5ip30"]
 
-[ext_resource type="Texture2D" uid="uid://jdeo5x4gw7ii" path="res://os/data/apps/default_icon.png" id="1_x41k1"]
+[ext_resource type="Texture2D" uid="uid://jdeo5x4gw7ii" path="res://os/data/apps/default_app_icon.png" id="1_x41k1"]
 [ext_resource type="Script" uid="uid://dsku1b2e0h58j" path="res://os/core/os_task_bar/app_button/os_task_bar_app_button.gd" id="2_0ehqq"]
 
 [node name="OsTaskBarAppButton" type="Button" unique_id=374484269]

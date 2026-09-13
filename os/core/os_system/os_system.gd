@@ -5,8 +5,21 @@ extends Node
 @onready var os_window_container: OsWindowsContainer = $OsWindowContainer
 @onready var os_task_bar: OsTaskBar = $OsTaskBar
 
-var app_manager: OsAppManager = OsAppManager.new()
+const FILE_ASSOCIATIONS := {
+	"png": "imager",
+	"jpg": "imager",
+	"jpeg": "imager",
+	"webp": "imager",
+	"gif": "imager",
 
+	"txt": "texter",
+	"md": "texter",
+
+	"mp3": "sounder",
+	"wav": "sounder",
+	"ogg": "sounder",
+}
+var app_manager: OsAppManager = OsAppManager.new()
 
 func _ready() -> void:
 	for app_definition in os_definition.apps:
@@ -14,5 +27,5 @@ func _ready() -> void:
 		
 	app_manager.windows_container = os_window_container
 	app_manager.task_bar = os_task_bar
-	app_manager.launch_app(os_definition.apps[0].id)
-	app_manager.launch_app(os_definition.apps[0].id)
+	
+	app_manager.launch_app("file_explorer")

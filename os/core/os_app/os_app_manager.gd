@@ -12,7 +12,7 @@ func register_app(definition: OsAppDefinition) -> void:
 	available_apps[definition.id] = definition
 	
 	
-func launch_app(app_id: StringName) -> OsAppScene:
+func launch_app(app_id: StringName, file_path := "") -> OsAppScene:
 	if not available_apps.has(app_id):
 		return null
 
@@ -28,6 +28,7 @@ func launch_app(app_id: StringName) -> OsAppScene:
 			
 	var app_instance = definition.scene.instantiate() as OsAppScene
 	app_instance.app_definition = definition
+	app_instance.file_path = file_path
 	
 	running_apps.append(app_instance)
 	
@@ -35,6 +36,7 @@ func launch_app(app_id: StringName) -> OsAppScene:
 		var app_window := windows_container.open_window(app_instance)
 		app_window.closed.connect(_on_app_window_closed)
 		app_window.focused.connect(_on_app_window_focused)
+		app_instance.setup()
 		
 	if task_bar:
 		task_bar.add_app_button(app_instance)
