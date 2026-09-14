@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://ifivf0shf81b"]
+
+[ext_resource type="Script" uid="uid://bcyg405s7xxit" path="res://os/core/os_notification_center/os_notification_popup.gd" id="1_bntsr"]
+
+[node name="OsNotificationPopup" type="Button" unique_id=1026285867]
+custom_minimum_size = Vector2(200, 0)
+custom_maximum_size = Vector2(200, -1)
+text = "This  is a notification"
+alignment = 0
+autowrap_mode = 2
+script = ExtResource("1_bntsr")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

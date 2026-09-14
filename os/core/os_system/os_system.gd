@@ -5,6 +5,7 @@ extends Node
 
 @onready var os_window_container: OsWindowsContainer = $OsWindowContainer
 @onready var os_task_bar: OsTaskBar = $OsTaskBar
+@onready var os_notification_center: OsNotificationCenter = $OsNotificationCenter
 
 const FILE_ASSOCIATIONS := {
 	"png": "imager",
@@ -42,5 +43,9 @@ func open_file(file_path: String):
 	if FILE_ASSOCIATIONS.has(file_extension):
 		var app_id = FILE_ASSOCIATIONS[file_extension]
 		app_manager.launch_app(app_id, file_path)
+	else:
+		add_notification("No app able to open that file")
 		
-	
+		
+func add_notification(text: String) -> void:
+	os_notification_center.add_notification(text)

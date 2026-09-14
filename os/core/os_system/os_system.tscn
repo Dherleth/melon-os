@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://coaklct32fwph" path="res://os/core/os_system/os_system.gd" id="1_l4gxm"]
 [ext_resource type="PackedScene" uid="uid://dbop60mi5qu3e" path="res://os/core/os_window_manager/os_window_container.tscn" id="3_nhvy6"]
+[ext_resource type="PackedScene" uid="uid://3vsmcanloltf" path="res://os/core/os_notification_center/os_notification_center.tscn" id="4_l4gxm"]
 [ext_resource type="PackedScene" uid="uid://drbgm0ket2lf5" path="res://os/core/os_task_bar/os_task_bar.tscn" id="4_nhvy6"]
 
 [node name="OsSystem" type="Control" unique_id=1276379304]
@@ -26,3 +27,14 @@ anchor_bottom = 1.0
 offset_top = -40.0
 offset_bottom = 0.0
 grow_vertical = 0
+
+[node name="OsNotificationCenter" parent="." unique_id=1243728760 instance=ExtResource("4_l4gxm")]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -240.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = 141.0
+grow_horizontal = 0

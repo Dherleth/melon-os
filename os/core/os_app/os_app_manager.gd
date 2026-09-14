@@ -15,6 +15,7 @@ func register_app(definition: OsAppDefinition) -> void:
 	
 func launch_app(app_id: StringName, file_path := "") -> OsAppScene:
 	if not available_apps.has(app_id):
+		os_system.add_notification("No app able to open that file")
 		return null
 
 	var definition: OsAppDefinition = available_apps[app_id]
