@@ -6,6 +6,7 @@ var running_apps: Array[OsAppScene] = []
 
 var windows_container: OsWindowsContainer
 var task_bar: OsTaskBar
+var os_system: OsSystem
 
 
 func register_app(definition: OsAppDefinition) -> void:
@@ -29,6 +30,7 @@ func launch_app(app_id: StringName, file_path := "") -> OsAppScene:
 	var app_instance = definition.scene.instantiate() as OsAppScene
 	app_instance.app_definition = definition
 	app_instance.file_path = file_path
+	app_instance.os_system = os_system
 	
 	running_apps.append(app_instance)
 	

@@ -9,5 +9,6 @@ script = ExtResource("1_rodtw")
 id = &"file_explorer"
 name = "Explorer"
 scene = ExtResource("2_jkbb0")
+default_size = Vector2(1100, 500)
 allow_multiple_instances = true
 metadata/_custom_type_script = "uid://byd2cixpj61b3"

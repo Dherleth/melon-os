@@ -1,13 +1,13 @@
 class_name OSDesktop
 extends Control
 
-var os: OSSystem
+var os: OsSystem
 
 @export var app_icon_scene: PackedScene
 @onready var app_container: Control = $AppContainer
 
 
-func setup(os_system: OSSystem) -> void:
+func setup(os_system: OsSystem) -> void:
 	os = os_system
 
 	for definition in os.definition.apps:

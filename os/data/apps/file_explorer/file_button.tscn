@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://c7tacnlvmenwb"]
+
+[ext_resource type="Script" uid="uid://bjaomass8v3xn" path="res://os/data/apps/file_explorer/file_button.gd" id="1_8r5e7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3c6o5"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="FileButton" type="Button" unique_id=1732079923]
+custom_minimum_size = Vector2(0, 40)
+custom_maximum_size = Vector2(-1, 40)
+offset_right = 8.0
+offset_bottom = 50.0
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_3c6o5")
+script = ExtResource("1_8r5e7")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1721002285]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=18145640]
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 2
+
+[node name="FilenameLabel" type="Label" parent="MarginContainer/HBoxContainer" unique_id=827496330]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "filename.extension"
+text_overrun_behavior = 3
+
+[node name="TypeLabel" type="Label" parent="MarginContainer/HBoxContainer" unique_id=320279682]
+custom_minimum_size = Vector2(100, 0)
+custom_maximum_size = Vector2(100, -1)
+layout_mode = 2
+text = "Text file"
+horizontal_alignment = 2
+
+[node name="CreationDateLabel" type="Label" parent="MarginContainer/HBoxContainer" unique_id=1725654022]
+custom_minimum_size = Vector2(100, 0)
+custom_maximum_size = Vector2(100, -1)
+layout_mode = 2
+text = "01.01.2000"
+horizontal_alignment = 2
+
+[node name="SizeLabel" type="Label" parent="MarginContainer/HBoxContainer" unique_id=278855288]
+custom_minimum_size = Vector2(100, 0)
+custom_maximum_size = Vector2(100, -1)
+layout_mode = 2
+text = "100ko"
+horizontal_alignment = 2

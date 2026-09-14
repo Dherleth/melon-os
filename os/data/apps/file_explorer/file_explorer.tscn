@@ -2,8 +2,48 @@
 
 [ext_resource type="Script" uid="uid://ccjkthrdo4wpc" path="res://os/data/apps/file_explorer/file_explorer.gd" id="1_b55kx"]
 
-[node name="FileExplorer" type="Control" unique_id=879777946]
-layout_mode = 3
-anchors_preset = 0
+[node name="FileExplorer" type="VBoxContainer" unique_id=351714816]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_b55kx")
-metadata/_custom_type_script = "uid://b5wuw0pu8lp2o"
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=597944297]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 10
+
+[node name="PathLabel" type="Label" parent="MarginContainer" unique_id=1747109551]
+layout_mode = 2
+text = "c://ex/ex_ex/ex_ex_ex/file.txt"
+
+[node name="MarginContainer2" type="MarginContainer" parent="." unique_id=841379402]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer2" unique_id=142825758]
+layout_mode = 2
+
+[node name="ScrollContainer2" type="ScrollContainer" parent="MarginContainer2/HBoxContainer" unique_id=1180461086]
+custom_minimum_size = Vector2(200, 0)
+custom_maximum_size = Vector2(200, -1)
+layout_mode = 2
+
+[node name="FoldersList" type="VBoxContainer" parent="MarginContainer2/HBoxContainer/ScrollContainer2" unique_id=55888007]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer2/HBoxContainer" unique_id=1232449453]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="FolderContentList" type="VBoxContainer" parent="MarginContainer2/HBoxContainer/ScrollContainer" unique_id=211515909]
+layout_mode = 2
+size_flags_horizontal = 3

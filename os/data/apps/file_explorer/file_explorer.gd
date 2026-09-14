@@ -1,5 +1,10 @@
 extends OsAppScene
 
+@onready var folder_content_list: VBoxContainer = $MarginContainer2/HBoxContainer/ScrollContainer/FolderContentList
+@onready var folders_list: VBoxContainer = $MarginContainer2/HBoxContainer/ScrollContainer2/FoldersList
+
+var file_button_scene := preload("res://os/data/apps/file_explorer/file_button.tscn")
+
 
 func _ready() -> void:
 	scan_directory("res://os/data/filesystem")
@@ -23,6 +28,10 @@ func scan_directory(path: String) -> void:
 				print("DIR: ", full_path)
 				scan_directory(full_path)
 			else:
+				var file_button_instance := file_button_scene.instantiate() as FileButton
+				folder_content_list.add_child(file_button_instance)
+				file_button_instance.setup(full_path.get_file())
+				file_button_instance.pressed.connect(_on_file_button_pressed.bind(full_path))
 				print("FILE: ", full_path)
 
 		entry = dir.get_next()
@@ -32,3 +41,8 @@ func scan_directory(path: String) -> void:
 
 func get_window_name() -> String:
 	return app_definition.name
+	
+	
+
+func _on_file_button_pressed(file_path: String) -> void:
+	os_system.open_file(file_path)
