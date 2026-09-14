@@ -1,7 +1,7 @@
 class_name OsSystem
 extends Node
 
-@export var os_definition: OSSystemDefinition = preload("res://os/data/os/melon_os_definiton.tres")
+@export var os_definition: OsSystemDefinition = preload("res://os/data/os/melon_os_definiton.tres")
 
 @onready var os_window_container: OsWindowsContainer = $OsWindowContainer
 @onready var os_task_bar: OsTaskBar = $OsTaskBar
@@ -20,6 +20,8 @@ const FILE_ASSOCIATIONS := {
 	"mp3": "sounder",
 	"wav": "sounder",
 	"ogg": "sounder",
+	
+	"": "file_explorer", #Files with no extension are folders
 }
 
 var app_manager: OsAppManager = OsAppManager.new()
@@ -32,8 +34,8 @@ func _ready() -> void:
 	for app_definition in os_definition.apps:
 		app_manager.register_app(app_definition)
 		
-	
-	app_manager.launch_app("file_explorer")
+		
+	open_file(os_definition.filesystem_base_path)
 	
 	
 

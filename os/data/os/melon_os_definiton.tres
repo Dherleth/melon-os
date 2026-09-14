@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="OSSystemDefinition" format=3 uid="uid://beu562sw1tbus"]
+[gd_resource type="Resource" script_class="OsSystemDefinition" format=3 uid="uid://beu562sw1tbus"]
 
 [ext_resource type="Script" uid="uid://byd2cixpj61b3" path="res://os/core/os_app/os_app_definition.gd" id="1_h2snm"]
 [ext_resource type="Resource" uid="uid://da50ainwj438x" path="res://os/data/apps/texter/texter.tres" id="2_2cilk"]
@@ -8,4 +8,6 @@
 [resource]
 script = ExtResource("2_w3sbq")
 apps = Array[ExtResource("1_h2snm")]([ExtResource("2_2cilk"), ExtResource("3_dpuia")])
+filesystem_base_path = "res://os/data/filesystem/"
+extensions_to_hide = Array[String](["import"])
 metadata/_custom_type_script = "uid://bwkjhovlngnvt"

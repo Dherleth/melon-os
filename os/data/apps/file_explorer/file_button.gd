@@ -30,6 +30,9 @@ func setup(filename_p: String) -> void:
 	var type := ""
 	var creation_date := ""
 	var size_txt := ""
+	
+	if extension == "":
+		type = "folder"
 
 	if parts.size() > 1:
 		filename = parts[0] + "." + extension

@@ -1,5 +1,9 @@
-class_name OSSystemDefinition
+class_name OsSystemDefinition
 extends Resource
 
-@export_group("App")
+@export_group("Apps")
 @export var apps: Array[OsAppDefinition]
+
+@export_group("Filesystem")
+@export var filesystem_base_path := "res://os/data/filesystem"
+@export var extensions_to_hide: Array[String] = []

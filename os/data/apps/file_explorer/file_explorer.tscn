@@ -17,9 +17,10 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 10
 
-[node name="PathLabel" type="Label" parent="MarginContainer" unique_id=1747109551]
+[node name="PathInput" type="LineEdit" parent="MarginContainer" unique_id=1387912033]
 layout_mode = 2
-text = "c://ex/ex_ex/ex_ex_ex/file.txt"
+context_menu_enabled = false
+clear_button_enabled = true
 
 [node name="MarginContainer2" type="MarginContainer" parent="." unique_id=841379402]
 layout_mode = 2
@@ -47,3 +48,5 @@ size_flags_horizontal = 3
 [node name="FolderContentList" type="VBoxContainer" parent="MarginContainer2/HBoxContainer/ScrollContainer" unique_id=211515909]
 layout_mode = 2
 size_flags_horizontal = 3
+
+[connection signal="text_submitted" from="MarginContainer/PathInput" to="." method="_on_path_input_text_submitted"]
