@@ -14,12 +14,14 @@ func register_app(definition: OsAppDefinition) -> void:
 	
 	
 func launch_app(app_id: StringName, file_path := "") -> OsAppScene:
+	# Does the app with app_id exists ?
 	if not available_apps.has(app_id):
 		os_system.add_notification("No app able to open that file")
 		return null
 
 	var definition: OsAppDefinition = available_apps[app_id]
-
+	
+	# Can the app be launched multiple times ?
 	if not definition.allow_multiple_instances:
 		var existing := _get_running_instance(app_id)
 
@@ -27,7 +29,8 @@ func launch_app(app_id: StringName, file_path := "") -> OsAppScene:
 			if windows_container:
 				windows_container.focus_window(existing.os_window)
 			return existing
-			
+	
+	# Instantiate the app and sets it's necessary data to work
 	var app_instance = definition.scene.instantiate() as OsAppScene
 	app_instance.app_definition = definition
 	app_instance.file_path = file_path
@@ -35,19 +38,22 @@ func launch_app(app_id: StringName, file_path := "") -> OsAppScene:
 	
 	running_apps.append(app_instance)
 	
+	# Opens a window and gives it the app.
 	if windows_container:
 		var app_window := windows_container.open_window(app_instance)
 		app_window.closed.connect(_on_app_window_closed)
 		app_window.focused.connect(_on_app_window_focused)
 		app_instance.setup()
-		
+	
+	# Add a task bar button for that app instance
 	if task_bar:
 		task_bar.add_app_button(app_instance)
 
 	return app_instance
 	
-
+# 
 func close_app(app_instance: OsAppScene) -> void:
+	app_instance.queue_free()
 	running_apps.erase(app_instance)
 	
 

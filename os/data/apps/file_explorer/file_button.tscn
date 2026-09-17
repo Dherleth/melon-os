@@ -6,10 +6,8 @@
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="FileButton" type="Button" unique_id=1732079923]
-custom_minimum_size = Vector2(0, 40)
-custom_maximum_size = Vector2(-1, 40)
-offset_right = 8.0
-offset_bottom = 50.0
+custom_minimum_size = Vector2(0, 35)
+offset_bottom = 35.0
 size_flags_horizontal = 3
 theme_override_styles/normal = SubResource("StyleBoxFlat_3c6o5")
 script = ExtResource("1_8r5e7")
@@ -30,7 +28,6 @@ theme_override_constants/margin_right = 20
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=18145640]
 layout_mode = 2
 theme_override_constants/separation = 30
-alignment = 2
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer" unique_id=1546340324]
 layout_mode = 2

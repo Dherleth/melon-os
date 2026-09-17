@@ -38,7 +38,9 @@ func _ready() -> void:
 	open_file(os_definition.filesystem_base_path)
 	
 	
-
+# Determines the app to use to open the file with FILE_ASSOCIATIONS.
+# The app then has the responsability to know how to open the file and use the
+# data in it.
 func open_file(file_path: String):
 	var file_extension = file_path.get_extension()
 	
