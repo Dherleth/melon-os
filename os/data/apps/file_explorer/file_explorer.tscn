@@ -24,6 +24,7 @@ theme_override_constants/margin_bottom = 10
 
 [node name="PathInput" type="LineEdit" parent="MarginContainer" unique_id=1387912033]
 layout_mode = 2
+keep_editing_on_text_submit = true
 context_menu_enabled = false
 clear_button_enabled = true
 

@@ -39,7 +39,7 @@ const FILE_TYPE := {
 # for example.
 #
 # Spaces is used to show indentation in the file explorer tree
-func setup(filename_p: String, with_details := true, spaces := 0) -> void:
+func setup(filepath: String, with_details := true, spaces := 0) -> void:
 	if spaces > 0:
 		var count = spaces
 		while count != 0:
@@ -52,20 +52,21 @@ func setup(filename_p: String, with_details := true, spaces := 0) -> void:
 	creation_date_label.text = ""
 	size_label.text = ""
 	
-	var extension := filename_p.get_extension().to_lower()
+	var filename := filepath.get_file()
+	var extension := filename.get_extension().to_lower()
 
 	if FILE_TYPE.has(extension):
 		type_label.text = FILE_TYPE[extension]
 	
-	var metadata_start = filename_p.find("_meta_")
+	var metadata_start = filename.find("_meta_")
 	
 	if metadata_start == -1:
 		# This is a standard filename
-		filename_label.text = filename_p
+		filename_label.text = filename
 		
 		if with_details:
 			# We don't read metadata for standard filename
-			pass
+			size_label.text = _get_file_size(filepath)
 		else:
 			filename_label.text_overrun_behavior = TextServer.OVERRUN_NO_TRIMMING
 			type_label.hide()
@@ -76,13 +77,13 @@ func setup(filename_p: String, with_details := true, spaces := 0) -> void:
 		
 		# Rebuilds the filename without metadata
 		
-		filename_label.text = filename_p.substr(0, metadata_start)
+		filename_label.text = filename.substr(0, metadata_start)
 		if extension != "":
 			filename_label.text = filename_label.text + "." + extension
 			
 		if with_details:
 			# Isolates metadata from the filename
-			var metadata := filename_p.substr(metadata_start + "_meta_".length())
+			var metadata := filename.substr(metadata_start + "_meta_".length())
 			
 			# removes the extension from the metadata
 			if extension != "":
@@ -95,7 +96,6 @@ func setup(filename_p: String, with_details := true, spaces := 0) -> void:
 				var creation_date = metadata.substr(creation_date_start + "created".length(), date_format_length)
 				
 				if creation_date.length() == date_format_length:
-					creation_date_label.show()
 					creation_date_label.text = creation_date.substr(0,2) + "." + creation_date.substr(2,2) + "." + creation_date.substr(4)
 				
 			var size_start = metadata.find("size")
@@ -110,9 +110,10 @@ func setup(filename_p: String, with_details := true, spaces := 0) -> void:
 						var size_end = size_str.find(recognized_size)
 						# Resubstr in case there was an uppercase in the size
 						size_str = metadata.substr(size_start + "size".length(), size_end + recognized_size.length())
-						size_label.show()
 						size_label.text = size_str
 						break
+			else:
+				size_label.text = _get_file_size(filepath)
 		else:
 			filename_label.text_overrun_behavior = TextServer.OVERRUN_NO_TRIMMING
 			type_label.hide()
@@ -125,3 +126,27 @@ func setup(filename_p: String, with_details := true, spaces := 0) -> void:
 	
 	# Root node does not update it's size automatically when content changes
 	self.custom_minimum_size.x = margin_container.size.x
+
+
+func _get_file_size(file_path) -> String:
+	var size_txt := ""
+	var bytes := -1
+	
+	if FileAccess.file_exists(file_path):
+		bytes = FileAccess.get_size(file_path)
+	elif DirAccess.dir_exists_absolute(file_path):
+		# We don't display size for directories
+		return ""
+
+	var bytes_f := float(bytes)
+	var units := ["B", "KB", "MB", "GB"]
+	var unit_index := 0
+
+	while bytes_f >= 1024.0 and unit_index < units.size() - 1:
+		bytes_f /= 1024.0
+		unit_index += 1
+
+	if bytes_f - int(bytes_f) == 0:
+		return "%.0f %s" % [bytes_f, units[unit_index]]
+
+	return "%.1f %s" % [bytes_f, units[unit_index]]

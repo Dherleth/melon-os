@@ -5,13 +5,13 @@
 [ext_resource type="Texture2D" uid="uid://c7pre5v0mjbgf" path="res://os/core/os_window/close_icon.png" id="3_0eyqj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0eyqj"]
-bg_color = Color(0.91764706, 0.6, 0.6, 0.7294118)
+bg_color = Color(17.413149, 11.708403, 11.708403, 0.41960785)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4mv1j"]
-bg_color = Color(0.7172357, 0.3128042, 0.33179274, 0.7294118)
+bg_color = Color(13.819, 6.547, 6.908, 0.122)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rdul2"]
-bg_color = Color(0.84459317, 0.42967534, 0.44166446, 0.7294118)
+bg_color = Color(16.076696, 8.701179, 8.881068, 0.34117648)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ownac"]
 bg_color = Color(0.8784314, 0.05882353, 0.28627452, 0.77254903)

@@ -21,4 +21,10 @@ func setup() -> void:
 
 # Defaults to the file that opened the app. Child classes can override this
 func get_window_name() -> String:
-	return file_path.get_file()
+	var filename = file_path.get_file()
+	var metadata_start := filename.find("_meta_")
+	
+	if metadata_start != -1:
+		filename = filename.substr(0, metadata_start) + "." + filename.get_extension()
+		
+	return filename
