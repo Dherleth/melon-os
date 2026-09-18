@@ -73,6 +73,8 @@ func get_window_name() -> String:
 func _on_file_button_pressed(file_path: String) -> void:
 	# If it is a folder we don't ask the OS to open it, because it would launch
 	# a new instance of the file explorer. We want to stay in the current one
+	focused.emit(self)
+	
 	if file_path.get_extension() == "":
 		_set_path_input_text(file_path)
 		
@@ -104,3 +106,15 @@ func _update_tree_current_folder() -> void:
 			file_button.set_as_current()
 		else:
 			file_button.set_as_not_current()
+			
+
+func _on_gui_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton:
+			if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+				focused.emit(self)
+
+
+func _on_path_input_gui_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton:
+			if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+				focused.emit(self)
