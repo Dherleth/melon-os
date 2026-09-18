@@ -4,10 +4,25 @@
 [ext_resource type="Resource" uid="uid://da50ainwj438x" path="res://os/data/apps/texter/texter.tres" id="2_2cilk"]
 [ext_resource type="Script" uid="uid://bwkjhovlngnvt" path="res://os/core/os_system/os_system_definition.gd" id="2_w3sbq"]
 [ext_resource type="Resource" uid="uid://ddgo6flmur4it" path="res://os/data/apps/file_explorer/file_explorer.tres" id="3_dpuia"]
+[ext_resource type="Resource" uid="uid://dcfc4e0325oy3" path="res://os/data/apps/imager/imager.tres" id="4_ywwn4"]
+[ext_resource type="Resource" uid="uid://bpmpn5u1pd3sb" path="res://os/data/apps/sounder/sounder.tres" id="5_xmpl6"]
 
 [resource]
 script = ExtResource("2_w3sbq")
 apps = Array[ExtResource("1_h2snm")]([ExtResource("2_2cilk"), ExtResource("3_dpuia")])
 filesystem_base_path = "res://os/data/filesystem/"
 extensions_to_hide = Array[String](["import"])
+file_associations = Dictionary[String, ExtResource("1_h2snm")]({
+"": ExtResource("3_dpuia"),
+"gif": ExtResource("4_ywwn4"),
+"jpeg": ExtResource("4_ywwn4"),
+"jpg": ExtResource("4_ywwn4"),
+"md": ExtResource("2_2cilk"),
+"mp3": ExtResource("5_xmpl6"),
+"ogg": ExtResource("5_xmpl6"),
+"png": ExtResource("4_ywwn4"),
+"txt": ExtResource("2_2cilk"),
+"wav": ExtResource("5_xmpl6"),
+"webp": ExtResource("4_ywwn4")
+})
 metadata/_custom_type_script = "uid://bwkjhovlngnvt"

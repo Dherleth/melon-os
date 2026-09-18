@@ -7,23 +7,6 @@ extends Node
 @onready var os_task_bar: OsTaskBar = $OsTaskBar
 @onready var os_notification_center: OsNotificationCenter = $OsNotificationCenter
 
-const FILE_ASSOCIATIONS := {
-	"png": "imager",
-	"jpg": "imager",
-	"jpeg": "imager",
-	"webp": "imager",
-	"gif": "imager",
-
-	"txt": "texter",
-	"md": "texter",
-
-	"mp3": "sounder",
-	"wav": "sounder",
-	"ogg": "sounder",
-	
-	"": "file_explorer", #Files with no extension are folders
-}
-
 var app_manager: OsAppManager = OsAppManager.new()
 
 func _ready() -> void:
@@ -44,8 +27,8 @@ func _ready() -> void:
 func open_file(file_path: String):
 	var file_extension = file_path.get_extension()
 	
-	if FILE_ASSOCIATIONS.has(file_extension):
-		var app_id = FILE_ASSOCIATIONS[file_extension]
+	if os_definition.file_associations.has(file_extension):
+		var app_id = os_definition.file_associations[file_extension].id
 		app_manager.launch_app(app_id, file_path)
 	else:
 		add_notification("No app able to open that file")
@@ -53,3 +36,14 @@ func open_file(file_path: String):
 		
 func add_notification(text: String) -> void:
 	os_notification_center.add_notification(text)
+	
+
+func get_file_app_association(file_path: String) -> OsAppDefinition:
+	var file_extension = file_path.get_extension()
+	
+	if os_definition.file_associations.has(file_extension):
+		var definition := os_definition.file_associations[file_extension]
+		
+		return definition
+	
+	return null

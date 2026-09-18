@@ -49,7 +49,8 @@ func scan_directory(path: String, recursive := false, level := 0) -> void:
 					# Shows the content of the directory
 					var file_button_instance := file_button_scene.instantiate() as FileButton
 					folder_content_list.add_child(file_button_instance)
-					file_button_instance.setup(full_path)
+					var icon = os_system.get_file_app_association(full_path).icon
+					file_button_instance.setup(full_path, icon)
 					file_button_instance.pressed.connect(_on_file_button_pressed.bind(full_path))
 				
 				if recursive:
@@ -57,7 +58,8 @@ func scan_directory(path: String, recursive := false, level := 0) -> void:
 					if dir.current_is_dir():
 						var file_button_instance := file_button_scene.instantiate() as FileButton
 						folders_list.add_child(file_button_instance)
-						file_button_instance.setup(full_path, false, level)
+						var icon = os_system.get_file_app_association(full_path).icon
+						file_button_instance.setup(full_path, icon, false, level)
 						file_button_instance.pressed.connect(_on_file_button_pressed.bind(full_path))
 						scan_directory(full_path, recursive, level + 1)
 

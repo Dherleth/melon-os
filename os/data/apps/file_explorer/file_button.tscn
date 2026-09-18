@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c7tacnlvmenwb"]
 
 [ext_resource type="Script" uid="uid://bjaomass8v3xn" path="res://os/data/apps/file_explorer/file_button.gd" id="1_8r5e7"]
+[ext_resource type="Texture2D" uid="uid://bns4jbw7ldrvt" path="res://os/data/apps/file_explorer/file_explorer_icon.png" id="2_0sv32"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3c6o5"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -27,11 +28,13 @@ theme_override_constants/margin_right = 20
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=18145640]
 layout_mode = 2
-theme_override_constants/separation = 30
+theme_override_constants/separation = 10
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer" unique_id=1546340324]
 layout_mode = 2
-expand_mode = 3
+texture = ExtResource("2_0sv32")
+expand_mode = 2
+stretch_mode = 3
 
 [node name="FilenameLabel" type="Label" parent="MarginContainer/HBoxContainer" unique_id=827496330]
 custom_minimum_size = Vector2(100, 0)

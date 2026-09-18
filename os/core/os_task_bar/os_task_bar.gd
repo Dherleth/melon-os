@@ -8,7 +8,7 @@ var app_button_scene: PackedScene = preload("res://os/core/os_task_bar/app_butto
 
 
 func _process(_delta: float) -> void:
-	time_button.text = str(Time.get_time_dict_from_system()["hour"]) + ":" + str(Time.get_time_dict_from_system()["minute"]).pad_zeros(2)
+	time_button.text = str(Time.get_time_dict_from_system()["hour"]).pad_zeros(2) + ":" + str(Time.get_time_dict_from_system()["minute"]).pad_zeros(2)
 
 
 func add_app_button(app_instance: OsAppScene) -> void:

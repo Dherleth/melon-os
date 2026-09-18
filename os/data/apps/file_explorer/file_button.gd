@@ -7,6 +7,7 @@ extends Button
 @onready var size_label: Label = $MarginContainer/HBoxContainer/SizeLabel
 @onready var h_box_container: HBoxContainer = $MarginContainer/HBoxContainer
 @onready var margin_container: MarginContainer = $MarginContainer
+@onready var texture_rect: TextureRect = $MarginContainer/HBoxContainer/TextureRect
 
 const FILE_TYPE := {
 	"png": "image file",
@@ -42,13 +43,15 @@ var full_path := ""
 # for example.
 #
 # Spaces is used to show indentation in the file explorer tree
-func setup(filepath: String, with_details := true, spaces := 0) -> void:
+func setup(filepath: String, icon: Texture2D, with_details := true, spaces := 0) -> void:
+	texture_rect.texture = icon
 	full_path = filepath
 	
 	if spaces > 0:
 		var count = spaces
 		while count != 0:
 			var spacer = Label.new()
+			spacer.text = "    "
 			h_box_container.add_child(spacer)
 			h_box_container.move_child(spacer, 0)
 			count = count - 1
@@ -141,6 +144,7 @@ func set_as_not_current() -> void:
 	style.bg_color = Color("99999900")
 
 	add_theme_stylebox_override("normal", style)
+	
 
 func _get_file_size(file_path) -> String:
 	var size_txt := ""
