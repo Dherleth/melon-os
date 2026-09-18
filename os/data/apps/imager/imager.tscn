@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://bvd5ptndqacmv"]
+
+[ext_resource type="Script" uid="uid://dxdw68h5hdoj8" path="res://os/data/apps/imager/imager.gd" id="1_m26d1"]
+
+[node name="Imager" type="Control" unique_id=1692880179]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_m26d1")
+metadata/_custom_type_script = "uid://b5wuw0pu8lp2o"
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=844327159]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer" unique_id=93899170]
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[connection signal="gui_input" from="MarginContainer/TextureRect" to="." method="_on_texture_rect_gui_input"]

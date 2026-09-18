@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://lilq36fnlmsl"]
 
 [ext_resource type="Script" uid="uid://coaklct32fwph" path="res://os/core/os_system/os_system.gd" id="1_l4gxm"]
-[ext_resource type="PackedScene" uid="uid://dbop60mi5qu3e" path="res://os/core/os_window_manager/os_window_container.tscn" id="3_nhvy6"]
+[ext_resource type="PackedScene" uid="uid://dbop60mi5qu3e" path="res://os/core/os_window_container/os_window_container.tscn" id="3_nhvy6"]
 [ext_resource type="PackedScene" uid="uid://3vsmcanloltf" path="res://os/core/os_notification_center/os_notification_center.tscn" id="4_l4gxm"]
 [ext_resource type="PackedScene" uid="uid://drbgm0ket2lf5" path="res://os/core/os_task_bar/os_task_bar.tscn" id="4_nhvy6"]
 

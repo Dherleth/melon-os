@@ -164,7 +164,7 @@ func _get_file_size(file_path) -> String:
 		bytes_f /= 1024.0
 		unit_index += 1
 
-	if bytes_f - int(bytes_f) == 0:
+	if bytes_f - int(bytes_f) >= 0 and bytes_f - int(bytes_f) < 0.1:
 		return "%.0f %s" % [bytes_f, units[unit_index]]
 
 	return "%.1f %s" % [bytes_f, units[unit_index]]

@@ -1,11 +1,15 @@
 [gd_resource type="Resource" script_class="OsAppDefinition" format=3 uid="uid://dcfc4e0325oy3"]
 
-[ext_resource type="Texture2D" uid="uid://jdeo5x4gw7ii" path="res://os/data/apps/default_app_icon.png" id="1_ej07g"]
+[ext_resource type="Texture2D" uid="uid://dgs6t15ylwsr" path="res://os/data/apps/imager/imager_icon.png" id="1_ej07g"]
+[ext_resource type="PackedScene" uid="uid://bvd5ptndqacmv" path="res://os/data/apps/imager/imager.tscn" id="2_3yk1w"]
 [ext_resource type="Script" uid="uid://byd2cixpj61b3" path="res://os/core/os_app/os_app_definition.gd" id="2_c5ipe"]
 
 [resource]
 script = ExtResource("2_c5ipe")
 id = &"imager"
 name = "Imager"
+icon = ExtResource("1_ej07g")
+scene = ExtResource("2_3yk1w")
+default_size = Vector2(800, 700)
 allow_multiple_instances = true
 metadata/_custom_type_script = "uid://byd2cixpj61b3"
