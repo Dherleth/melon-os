@@ -16,6 +16,7 @@ func add_app_button(app_instance: OsAppScene) -> void:
 	app_button.setup(app_instance.app_definition.icon, app_instance.os_window)
 	app_button.set_pressed_no_signal(true)
 	app_buttons_container.add_child(app_button)
+	set_app_buttons_focus(app_instance.os_window)
 
 
 func set_app_buttons_focus(app_window: OsWindow) -> void:
