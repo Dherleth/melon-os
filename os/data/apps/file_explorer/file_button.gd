@@ -25,6 +25,9 @@ const FILE_TYPE := {
 	"": "folder"
 }
 
+var full_path := ""
+
+
 # filename_p can be a standard filename and will be displayed as it is in the project structure,
 # with no metadata.
 # Or we can specify custom metadata as:
@@ -40,6 +43,8 @@ const FILE_TYPE := {
 #
 # Spaces is used to show indentation in the file explorer tree
 func setup(filepath: String, with_details := true, spaces := 0) -> void:
+	full_path = filepath
+	
 	if spaces > 0:
 		var count = spaces
 		while count != 0:
@@ -65,7 +70,6 @@ func setup(filepath: String, with_details := true, spaces := 0) -> void:
 		filename_label.text = filename
 		
 		if with_details:
-			# We don't read metadata for standard filename
 			size_label.text = _get_file_size(filepath)
 		else:
 			filename_label.text_overrun_behavior = TextServer.OVERRUN_NO_TRIMMING
@@ -73,10 +77,9 @@ func setup(filepath: String, with_details := true, spaces := 0) -> void:
 			creation_date_label.hide()
 			size_label.hide()
 	else:
-		# The filename is formatted with custom metadata
+		# The filename has custom metadata
 		
 		# Rebuilds the filename without metadata
-		
 		filename_label.text = filename.substr(0, metadata_start)
 		if extension != "":
 			filename_label.text = filename_label.text + "." + extension
@@ -127,6 +130,17 @@ func setup(filepath: String, with_details := true, spaces := 0) -> void:
 	# Root node does not update it's size automatically when content changes
 	self.custom_minimum_size.x = margin_container.size.x
 
+func set_as_current() -> void:
+	var style := get_theme_stylebox("normal").duplicate() as StyleBoxFlat
+	style.bg_color = Color("99999916")
+
+	add_theme_stylebox_override("normal", style)
+	
+func set_as_not_current() -> void:
+	var style := get_theme_stylebox("normal").duplicate() as StyleBoxFlat
+	style.bg_color = Color("99999900")
+
+	add_theme_stylebox_override("normal", style)
 
 func _get_file_size(file_path) -> String:
 	var size_txt := ""

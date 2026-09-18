@@ -11,6 +11,7 @@ func setup() -> void:
 	_set_path_input_text(file_path)
 
 	scan_directory(file_path, true)
+	_update_tree_current_folder()
 	
 	
 # Shows the content of the directory that:
@@ -56,7 +57,7 @@ func scan_directory(path: String, recursive := false, level := 0) -> void:
 					if dir.current_is_dir():
 						var file_button_instance := file_button_scene.instantiate() as FileButton
 						folders_list.add_child(file_button_instance)
-						file_button_instance.setup(full_path.get_file(), false, level)
+						file_button_instance.setup(full_path, false, level)
 						file_button_instance.pressed.connect(_on_file_button_pressed.bind(full_path))
 						scan_directory(full_path, recursive, level + 1)
 
@@ -76,6 +77,7 @@ func _on_file_button_pressed(file_path: String) -> void:
 		_set_path_input_text(file_path)
 		
 		scan_directory(file_path)
+		_update_tree_current_folder()
 	else:
 		os_system.open_file(file_path)
 	
@@ -89,3 +91,16 @@ func _on_path_input_text_submitted(fake_path: String) -> void:
 	var real_path = fake_path.replace(fake_fs_base_path, os_system.os_definition.filesystem_base_path)
 	
 	scan_directory(real_path)
+	_update_tree_current_folder()
+	
+	
+func _update_tree_current_folder() -> void:
+	var current_folder_path = path_input.text.replace(fake_fs_base_path, os_system.os_definition.filesystem_base_path)
+	
+	for button in folders_list.get_children():
+		var file_button = button as FileButton
+		
+		if file_button.full_path.rstrip("/") == current_folder_path.to_lower().rstrip("/"):
+			file_button.set_as_current()
+		else:
+			file_button.set_as_not_current()
