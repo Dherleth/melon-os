@@ -25,9 +25,9 @@ func _ready() -> void:
 func setup(app_instance_p: OsAppScene) -> void:
 	app_instance = app_instance_p
 	title_label.text = app_instance.get_window_name()
+	app_container.add_child(app_instance)
 	size = app_instance.app_definition.default_size
 	app_instance.os_window = self
-	app_container.add_child(app_instance)
 	app_instance.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	app_instance.focused.connect(_on_app_focused)
 	
@@ -50,7 +50,6 @@ func set_app_container_size(size_p: Vector2) -> void:
 	if window_size.x >= usable_width or window_size.y >= usable_height:
 		var window_aspect = min(usable_width / window_size.x, usable_height / window_size.y)
 		window_size = Vector2i(window_size.x * window_aspect,window_size.y * window_aspect)
-	
 	size = window_size
 
 

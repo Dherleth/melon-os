@@ -1,29 +1,17 @@
 class_name OsAppManager
 extends Node
 
-var available_apps: Dictionary[StringName, OsAppDefinition] = {}
 var running_apps: Array[OsAppScene] = []
 
 var windows_container: OsWindowsContainer
 var task_bar: OsTaskBar
 var os_system: OsSystem
-
-
-func register_app(definition: OsAppDefinition) -> void:
-	available_apps[definition.id] = definition
 	
 	
-func launch_app(app_id: StringName, file_path := "") -> OsAppScene:
-	# Does the app with app_id exists ?
-	if not available_apps.has(app_id):
-		os_system.add_notification("No app able to open that file")
-		return null
-
-	var definition: OsAppDefinition = available_apps[app_id]
-	
+func launch_app(app_definition: OsAppDefinition, file_path := "") -> OsAppScene:	
 	# Can the app be launched multiple times ?
-	if not definition.allow_multiple_instances:
-		var existing := _get_running_instance(app_id)
+	if not app_definition.allow_multiple_instances:
+		var existing := _get_running_instance(app_definition.id)
 
 		if existing:
 			if windows_container:
@@ -31,8 +19,8 @@ func launch_app(app_id: StringName, file_path := "") -> OsAppScene:
 			return existing
 	
 	# Instantiate the app and sets it's necessary data to work
-	var app_instance = definition.scene.instantiate() as OsAppScene
-	app_instance.app_definition = definition
+	var app_instance = app_definition.scene.instantiate() as OsAppScene
+	app_instance.app_definition = app_definition
 	app_instance.file_path = file_path
 	app_instance.os_system = os_system
 	

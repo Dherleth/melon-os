@@ -9,7 +9,6 @@
 
 [resource]
 script = ExtResource("2_w3sbq")
-apps = Array[ExtResource("1_h2snm")]([ExtResource("2_2cilk"), ExtResource("3_dpuia"), ExtResource("4_ywwn4")])
 filesystem_base_path = "res://os/data/filesystem/"
 extensions_to_hide = Array[String](["import"])
 file_associations = Dictionary[String, ExtResource("1_h2snm")]({

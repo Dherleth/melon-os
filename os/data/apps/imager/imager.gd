@@ -12,7 +12,7 @@ func open_file(file_path: String) -> void:
 	var window_size = texture.get_size()
 	os_window.set_app_container_size(window_size)
 	
-	if window_size.y >= (os_window.get_viewport_rect().size.y / 2.0 + 100):
+	if window_size.y >= (os_window.get_viewport_rect().size.y * 0.75):
 		os_window.position = Vector2i(os_window.position.x, randi_range(2, 5))
 
 

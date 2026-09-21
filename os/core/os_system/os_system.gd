@@ -15,9 +15,6 @@ func _ready() -> void:
 	app_manager.windows_container = os_window_container
 	app_manager.task_bar = os_task_bar
 	
-	for app_definition in os_definition.apps:
-		app_manager.register_app(app_definition)
-	
 	os_desktop.os_system = self
 	os_desktop.setup()
 	
@@ -26,11 +23,10 @@ func _ready() -> void:
 # The app then has the responsability to know how to open the file and use the
 # data in it.
 func open_file(file_path: String):
-	var file_extension = file_path.get_extension()
+	var app_definition = get_file_app_association(file_path)
 	
-	if os_definition.file_associations.has(file_extension):
-		var app_id = os_definition.file_associations[file_extension].id
-		app_manager.launch_app(app_id, file_path)
+	if app_definition:
+		app_manager.launch_app(app_definition, file_path)
 	else:
 		add_notification("No app able to open that file")
 		

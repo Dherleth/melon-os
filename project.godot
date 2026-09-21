@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="MelonOs"
-run/main_scene="uid://lilq36fnlmsl"
+run/main_scene="uid://c8nltke787h75"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 
 [display]

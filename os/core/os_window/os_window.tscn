@@ -27,10 +27,12 @@ bg_color = Color(0.70980394, 0.02745098, 0.22352941, 0.77254903)
 
 [node name="OsWindow" type="PanelContainer" unique_id=1959368544]
 custom_minimum_size = Vector2(300, 200)
-offset_right = 300.0
-offset_bottom = 200.0
+anchors_preset = -1
+anchor_right = 0.15625
+anchor_bottom = 0.18518518
 theme_override_styles/panel = SubResource("StyleBoxFlat_x41k1")
 script = ExtResource("1_4bawu")
+metadata/_edit_use_anchors_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1866413373]
 layout_mode = 2

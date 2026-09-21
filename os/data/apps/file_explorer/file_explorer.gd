@@ -77,18 +77,18 @@ func get_window_name() -> String:
 	return app_definition.name
 	
 	
-func _on_file_button_pressed(file_path: String) -> void:
+func _on_file_button_pressed(file_path_p: String) -> void:
 	# If it is a folder we don't ask the OS to open it, because it would launch
 	# a new instance of the file explorer. We want to stay in the current one
 	focused.emit(self)
 	
-	if file_path.get_extension() == "":
-		_set_path_input_text(file_path)
+	if file_path_p.get_extension() == "":
+		_set_path_input_text(file_path_p)
 		
-		scan_directory(file_path)
+		scan_directory(file_path_p)
 		_update_tree_current_folder()
 	else:
-		os_system.open_file(file_path)
+		os_system.open_file(file_path_p)
 	
 
 func _set_path_input_text(path: String) -> void:

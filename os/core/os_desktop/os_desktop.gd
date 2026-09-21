@@ -8,8 +8,8 @@ var desktop_button_scene := preload("res://os/core/os_desktop/os_desktop_button.
 var os_system: OsSystem
 
 func setup() -> void:
-	if DirAccess.dir_exists_absolute(os_system.os_definition.desktop_path):
-		scan_directory(os_system.os_definition.desktop_path)
+	if DirAccess.dir_exists_absolute(os_system.os_definition.desktop_folder_path):
+		scan_directory(os_system.os_definition.desktop_folder_path)
 	else:
 		printerr("Desktop path does not exists")
 
