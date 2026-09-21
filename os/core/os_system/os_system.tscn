@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://lilq36fnlmsl"]
 
 [ext_resource type="Script" uid="uid://coaklct32fwph" path="res://os/core/os_system/os_system.gd" id="1_l4gxm"]
+[ext_resource type="PackedScene" uid="uid://dwff8eno1lftf" path="res://os/core/os_desktop/os_desktop.tscn" id="2_l4gxm"]
 [ext_resource type="PackedScene" uid="uid://dbop60mi5qu3e" path="res://os/core/os_window_container/os_window_container.tscn" id="3_nhvy6"]
 [ext_resource type="PackedScene" uid="uid://3vsmcanloltf" path="res://os/core/os_notification_center/os_notification_center.tscn" id="4_l4gxm"]
 [ext_resource type="PackedScene" uid="uid://drbgm0ket2lf5" path="res://os/core/os_task_bar/os_task_bar.tscn" id="4_nhvy6"]
@@ -13,6 +14,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_l4gxm")
+
+[node name="OsDesktop" parent="." unique_id=1876509325 instance=ExtResource("2_l4gxm")]
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 0.962963
+metadata/_edit_use_anchors_ = true
 
 [node name="OsWindowContainer" parent="." unique_id=569395539 instance=ExtResource("3_nhvy6")]
 layout_mode = 0

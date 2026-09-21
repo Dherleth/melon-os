@@ -39,8 +39,7 @@ var full_path := ""
 # the size will be: 100ko
 #
 # If with_details is false, we hide all the labels except the filename.
-# This is usefull for displaying folders in the file explorer tree, or desktop buttons
-# for example.
+# This is usefull for displaying folders in the file explorer tree
 #
 # Spaces is used to show indentation in the file explorer tree
 func setup(filepath: String, icon: Texture2D, with_details := true, spaces := 0) -> void:
@@ -127,7 +126,9 @@ func setup(filepath: String, icon: Texture2D, with_details := true, spaces := 0)
 			size_label.hide()
 
 	# For scrollbar to appear if placed inside a scrollbar containers.
-	# We wait for the sizes to be updated at runtime
+	# We wait for the sizes to be updated at runtime.
+	# Waiting for two frames proves more reliable than just one.
+	await get_tree().process_frame
 	await get_tree().process_frame
 	
 	# Root node does not update it's size automatically when content changes

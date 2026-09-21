@@ -9,8 +9,13 @@ var fake_fs_base_path := "M://"
 
 func setup() -> void:
 	_set_path_input_text(file_path)
-
-	scan_directory(file_path, true)
+	
+	# Setup the explorer to know all the fs
+	scan_directory(os_system.os_definition.filesystem_base_path, true)
+	
+	# Sets the explorer to be on the directory that opened it
+	scan_directory(file_path)
+	
 	_update_tree_current_folder()
 	
 	

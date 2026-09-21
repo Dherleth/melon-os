@@ -6,6 +6,7 @@ extends Node
 @onready var os_window_container: OsWindowsContainer = $OsWindowContainer
 @onready var os_task_bar: OsTaskBar = $OsTaskBar
 @onready var os_notification_center: OsNotificationCenter = $OsNotificationCenter
+@onready var os_desktop: OsDesktop = $OsDesktop
 
 var app_manager: OsAppManager = OsAppManager.new()
 
@@ -16,9 +17,9 @@ func _ready() -> void:
 	
 	for app_definition in os_definition.apps:
 		app_manager.register_app(app_definition)
-		
-		
-	open_file(os_definition.filesystem_base_path)
+	
+	os_desktop.os_system = self
+	os_desktop.setup()
 	
 	
 # Determines the app to use to open the file with FILE_ASSOCIATIONS.

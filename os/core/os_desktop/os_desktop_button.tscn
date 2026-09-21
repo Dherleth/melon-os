@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://bvkmd8rv7q86w"]
+
+[ext_resource type="Script" uid="uid://ca586orgtugdh" path="res://os/core/os_desktop/os_desktop_button.gd" id="1_gu0vb"]
+[ext_resource type="Texture2D" uid="uid://dql2sa6ht6tfw" path="res://os/data/apps/texter/texter_icon.png" id="2_ywm7w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ywm7w"]
+
+[node name="OsDesktopButton" type="Button" unique_id=1962182049]
+custom_minimum_size = Vector2(125, 75)
+custom_maximum_size = Vector2(125, 75)
+anchors_preset = -1
+anchor_right = 0.065104164
+anchor_bottom = 0.06944445
+offset_right = -24.999992
+offset_bottom = 25.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ywm7w")
+script = ExtResource("1_gu0vb")
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=54318204]
+custom_minimum_size = Vector2(125, 75)
+custom_maximum_size = Vector2(125, 75)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 12.5
+offset_right = -12.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=41233129]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer" unique_id=2090989675]
+custom_minimum_size = Vector2(75, 0)
+custom_maximum_size = Vector2(75, -1)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+texture = ExtResource("2_ywm7w")
+stretch_mode = 5
+
+[node name="FilenameLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1391356651]
+custom_minimum_size = Vector2(0, 25)
+custom_maximum_size = Vector2(-1, 25)
+layout_mode = 2
+text = "filename.txt"
+horizontal_alignment = 1
+vertical_alignment = 1
+text_overrun_behavior = 3
