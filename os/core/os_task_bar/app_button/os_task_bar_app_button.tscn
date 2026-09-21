@@ -3,13 +3,22 @@
 [ext_resource type="Texture2D" uid="uid://jdeo5x4gw7ii" path="res://os/data/apps/default_app_icon.png" id="1_x41k1"]
 [ext_resource type="Script" uid="uid://dsku1b2e0h58j" path="res://os/core/os_task_bar/app_button/os_task_bar_app_button.gd" id="2_0ehqq"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8jesn"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+
 [node name="OsTaskBarAppButton" type="Button" unique_id=374484269]
+custom_minimum_size = Vector2(40, 40)
 custom_maximum_size = Vector2(40, 40)
 offset_right = 40.0
 offset_bottom = 38.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8jesn")
 toggle_mode = true
 icon = ExtResource("1_x41k1")
 icon_alignment = 1
+expand_icon = true
 script = ExtResource("2_0ehqq")
 
 [connection signal="toggled" from="." to="." method="_on_toggled"]

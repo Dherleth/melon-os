@@ -1,8 +1,8 @@
 class_name OsTaskBar
 extends PanelContainer
 
-@onready var app_buttons_container: HBoxContainer = $HBoxContainer/AppButtonsContainer
-@onready var time_button: Button = $HBoxContainer/TimeButton
+@onready var app_buttons_container: HBoxContainer = $MarginContainer/HBoxContainer/AppButtonsContainer
+@onready var time_button: Button = $MarginContainer/HBoxContainer/TimeButton
 
 var app_button_scene: PackedScene = preload("res://os/core/os_task_bar/app_button/os_task_bar_app_button.tscn")
 

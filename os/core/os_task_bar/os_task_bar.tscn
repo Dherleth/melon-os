@@ -3,29 +3,55 @@
 [ext_resource type="Script" uid="uid://cfn7tw0tdq3wj" path="res://os/core/os_task_bar/os_task_bar.gd" id="1_h132n"]
 [ext_resource type="Texture2D" uid="uid://b73yw38up2hm2" path="res://os/core/os_task_bar/start_button_icon.png" id="2_8jesn"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8jesn"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a7j7a"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+
 [node name="OsTaskBar" type="PanelContainer" unique_id=656516641]
-custom_minimum_size = Vector2(0, 40)
-custom_maximum_size = Vector2(-1, 40)
+custom_minimum_size = Vector2(0, 50)
+custom_maximum_size = Vector2(-1, 50)
 anchors_preset = -1
 anchor_right = 1.0
-anchor_bottom = 0.037037037
-offset_bottom = 26.666664
+anchor_bottom = 0.046296295
+offset_bottom = 16.666664
 grow_horizontal = 2
 script = ExtResource("1_h132n")
 metadata/_edit_use_anchors_ = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=175750961]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1171652014]
 layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
 
-[node name="StartButton" type="Button" parent="HBoxContainer" unique_id=480910108]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=175750961]
 layout_mode = 2
+size_flags_vertical = 4
+
+[node name="StartButton" type="Button" parent="MarginContainer/HBoxContainer" unique_id=480910108]
+custom_minimum_size = Vector2(40, 40)
+custom_maximum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8jesn")
 toggle_mode = true
 icon = ExtResource("2_8jesn")
+icon_alignment = 1
+expand_icon = true
 
-[node name="AppButtonsContainer" type="HBoxContainer" parent="HBoxContainer" unique_id=408461945]
+[node name="AppButtonsContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=408461945]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_constants/separation = 6
 
-[node name="TimeButton" type="Button" parent="HBoxContainer" unique_id=913522020]
+[node name="TimeButton" type="Button" parent="MarginContainer/HBoxContainer" unique_id=913522020]
 layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_a7j7a")
 text = "00:00"

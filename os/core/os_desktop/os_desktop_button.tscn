@@ -48,6 +48,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
 texture = ExtResource("2_ywm7w")
+expand_mode = 1
 stretch_mode = 5
 
 [node name="FilenameLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1391356651]

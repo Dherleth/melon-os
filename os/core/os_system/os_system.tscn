@@ -18,7 +18,7 @@ script = ExtResource("1_l4gxm")
 [node name="OsDesktop" parent="." unique_id=1876509325 instance=ExtResource("2_l4gxm")]
 layout_mode = 1
 anchors_preset = -1
-anchor_bottom = 0.962963
+anchor_bottom = 0.9537037
 metadata/_edit_use_anchors_ = true
 
 [node name="OsWindowContainer" parent="." unique_id=569395539 instance=ExtResource("3_nhvy6")]
