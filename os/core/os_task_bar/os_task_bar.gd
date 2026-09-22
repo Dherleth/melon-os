@@ -35,7 +35,7 @@ func set_app_buttons_focus(app_window: OsWindow) -> void:
 
 
 func get_bar_height() -> float:
-	return bar.size.x
+	return bar.size.y
 	
 
 func _on_shutdown_button_pressed() -> void:

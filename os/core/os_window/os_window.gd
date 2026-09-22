@@ -46,6 +46,7 @@ func set_app_container_size(size_p: Vector2) -> void:
 	# if they use all the usable space
 	var usable_height = get_viewport_rect().size.y - app_instance.os_system.os_task_bar.get_bar_height() - 10
 	var usable_width = get_viewport_rect().size.x
+	print(usable_height, " ", usable_width)
 	
 	if window_size.x >= usable_width or window_size.y >= usable_height:
 		var window_aspect = min(usable_width / window_size.x, usable_height / window_size.y)

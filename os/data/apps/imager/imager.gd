@@ -10,6 +10,7 @@ func open_file(file_path: String) -> void:
 	var texture: Texture2D = load(file_path)
 	texture_rect.texture = texture
 	var window_size = texture.get_size()
+
 	os_window.set_app_container_size(window_size)
 	
 	if window_size.y >= (os_window.get_viewport_rect().size.y * 0.75):
