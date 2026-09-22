@@ -44,7 +44,7 @@ func set_app_container_size(size_p: Vector2) -> void:
 	# We just limit the sizes they give us so the window is still usable.
 	# So we suspect they would place the window between 0 and 10 pixels from the top at most
 	# if they use all the usable space
-	var usable_height = get_viewport_rect().size.y - app_instance.os_system.os_task_bar.size.y - 10
+	var usable_height = get_viewport_rect().size.y - app_instance.os_system.os_task_bar.get_bar_height() - 10
 	var usable_width = get_viewport_rect().size.x
 	
 	if window_size.x >= usable_width or window_size.y >= usable_height:

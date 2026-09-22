@@ -1,5 +1,7 @@
 class_name OsSystem
-extends Node
+extends Control
+
+signal turned_off
 
 @export var os_definition: OsSystemDefinition = preload("res://os/data/os/melon_os_definiton.tres")
 
@@ -11,15 +13,18 @@ extends Node
 var app_manager: OsAppManager = OsAppManager.new()
 
 func _ready() -> void:
+	hide()
 	app_manager.os_system = self
 	app_manager.windows_container = os_window_container
 	app_manager.task_bar = os_task_bar
+	
+	os_task_bar.os_system = self
 	
 	os_desktop.os_system = self
 	os_desktop.setup()
 	
 	
-# Determines the app to use to open the file with FILE_ASSOCIATIONS.
+# Determines the app to use to open a file.
 # The app then has the responsability to know how to open the file and use the
 # data in it.
 func open_file(file_path: String):
@@ -44,3 +49,12 @@ func get_file_app_association(file_path: String) -> OsAppDefinition:
 		return definition
 	
 	return null
+
+
+func turn_on() -> void:
+	show()
+	
+
+func turn_off() -> void:
+	hide()
+	turned_off.emit()

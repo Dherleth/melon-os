@@ -28,12 +28,8 @@ grow_vertical = 1
 
 [node name="OsTaskBar" parent="." unique_id=656516641 instance=ExtResource("4_nhvy6")]
 layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -40.0
-offset_bottom = 0.0
-grow_vertical = 0
+offset_top = -50.0
+offset_bottom = -50.0
 
 [node name="OsNotificationCenter" parent="." unique_id=1243728760 instance=ExtResource("4_l4gxm")]
 layout_mode = 1

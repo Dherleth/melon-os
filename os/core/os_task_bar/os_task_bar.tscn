@@ -3,6 +3,12 @@
 [ext_resource type="Script" uid="uid://cfn7tw0tdq3wj" path="res://os/core/os_task_bar/os_task_bar.gd" id="1_h132n"]
 [ext_resource type="Texture2D" uid="uid://b73yw38up2hm2" path="res://os/core/os_task_bar/start_button_icon.png" id="2_8jesn"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l4ecp"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8jesn"]
 content_margin_left = 4.0
 content_margin_top = 4.0
@@ -15,27 +21,73 @@ content_margin_top = 4.0
 content_margin_right = 4.0
 content_margin_bottom = 4.0
 
-[node name="OsTaskBar" type="PanelContainer" unique_id=656516641]
+[node name="OsTaskBar" type="Control" unique_id=309195184]
+layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("1_h132n")
+
+[node name="Menu" type="PanelContainer" parent="." unique_id=180618916]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -76.0
+offset_right = 97.0
+grow_vertical = 0
+size_flags_horizontal = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="Menu" unique_id=1154871860]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/MarginContainer" unique_id=1645094496]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="SettingsButton" type="Button" parent="Menu/MarginContainer/VBoxContainer" unique_id=196127093]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_l4ecp")
+text = "Settings"
+
+[node name="DisconnectButton" type="Button" parent="Menu/MarginContainer/VBoxContainer" unique_id=333222765]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_l4ecp")
+text = "Disconnect"
+
+[node name="ShutdownButton" type="Button" parent="Menu/MarginContainer/VBoxContainer" unique_id=1667864042]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_l4ecp")
+text = "Shutdown"
+
+[node name="Bar" type="PanelContainer" parent="." unique_id=656516641]
 custom_minimum_size = Vector2(0, 50)
 custom_maximum_size = Vector2(-1, 50)
+layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 0.046296295
 offset_bottom = 16.666664
 grow_horizontal = 2
-script = ExtResource("1_h132n")
 metadata/_edit_use_anchors_ = true
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1171652014]
+[node name="MarginContainer" type="MarginContainer" parent="Bar" unique_id=1171652014]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_right = 5
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=175750961]
+[node name="HBoxContainer" type="HBoxContainer" parent="Bar/MarginContainer" unique_id=175750961]
 layout_mode = 2
 size_flags_vertical = 4
 
-[node name="StartButton" type="Button" parent="MarginContainer/HBoxContainer" unique_id=480910108]
+[node name="StartButton" type="Button" parent="Bar/MarginContainer/HBoxContainer" unique_id=480910108]
 custom_minimum_size = Vector2(40, 40)
 custom_maximum_size = Vector2(40, 40)
 layout_mode = 2
@@ -45,13 +97,16 @@ icon = ExtResource("2_8jesn")
 icon_alignment = 1
 expand_icon = true
 
-[node name="AppButtonsContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=408461945]
+[node name="AppButtonsContainer" type="HBoxContainer" parent="Bar/MarginContainer/HBoxContainer" unique_id=408461945]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 theme_override_constants/separation = 6
 
-[node name="TimeButton" type="Button" parent="MarginContainer/HBoxContainer" unique_id=913522020]
+[node name="TimeButton" type="Button" parent="Bar/MarginContainer/HBoxContainer" unique_id=913522020]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxEmpty_a7j7a")
 text = "00:00"
+
+[connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/ShutdownButton" to="." method="_on_shutdown_button_pressed"]
+[connection signal="toggled" from="Bar/MarginContainer/HBoxContainer/StartButton" to="." method="_on_start_button_toggled"]
