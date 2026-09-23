@@ -1,9 +1,9 @@
 class_name OsSystem
 extends Control
 
-signal turned_off
+signal turned_off(os_system: OsSystem)
 
-@export var os_definition: OsSystemDefinition = preload("res://os/data/os/melon_os_definiton.tres")
+@export var os_definition: OsSystemDefinition = preload("res://os/sample_data/sample_os_definiton.tres")
 
 @onready var os_window_container: OsWindowsContainer = $OsWindowContainer
 @onready var os_task_bar: OsTaskBar = $OsTaskBar
@@ -57,4 +57,13 @@ func turn_on() -> void:
 
 func turn_off() -> void:
 	hide()
-	turned_off.emit()
+	turned_off.emit(self)
+	
+# Helper to easily create a new OsSystem instance without passing the scene path around.
+# You can provide your own OS definition or use the default one
+static func create(os_definition_p: OsSystemDefinition = null) -> OsSystem:
+	var os_instance = preload("res://os/core/os_system/os_system.tscn").instantiate() as OsSystem
+	if os_definition_p:
+		os_instance.os_definition = os_definition_p
+	
+	return os_instance

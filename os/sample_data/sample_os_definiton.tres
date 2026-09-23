@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="OsSystemDefinition" format=3 uid="uid://beu562sw1tbus"]
+
+[ext_resource type="Script" uid="uid://byd2cixpj61b3" path="res://os/core/os_app/os_app_definition.gd" id="1_ke3ho"]
+[ext_resource type="Resource" uid="uid://ddgo6flmur4it" path="res://os/sample_data/apps/file_explorer/file_explorer.tres" id="2_p7yj2"]
+[ext_resource type="Resource" uid="uid://dcfc4e0325oy3" path="res://os/sample_data/apps/imager/imager.tres" id="3_4f77h"]
+[ext_resource type="Resource" uid="uid://da50ainwj438x" path="res://os/sample_data/apps/texter/texter.tres" id="4_pg37j"]
+[ext_resource type="Resource" uid="uid://bpmpn5u1pd3sb" path="res://os/sample_data/apps/sounder/sounder.tres" id="5_lv6vg"]
+[ext_resource type="Script" uid="uid://bwkjhovlngnvt" path="res://os/core/os_system/os_system_definition.gd" id="6_udmxe"]
+
+[resource]
+script = ExtResource("6_udmxe")
+filesystem_base_path = "res://os/sample_data/filesystem/"
+extensions_to_hide = Array[String](["import"])
+file_associations = Dictionary[String, ExtResource("1_ke3ho")]({
+"": ExtResource("2_p7yj2"),
+"gif": ExtResource("3_4f77h"),
+"jpeg": ExtResource("3_4f77h"),
+"jpg": ExtResource("3_4f77h"),
+"md": ExtResource("4_pg37j"),
+"mp3": ExtResource("5_lv6vg"),
+"ogg": ExtResource("5_lv6vg"),
+"png": ExtResource("3_4f77h"),
+"txt": ExtResource("4_pg37j"),
+"wav": ExtResource("5_lv6vg"),
+"webp": ExtResource("3_4f77h")
+})
+metadata/_custom_type_script = "uid://bwkjhovlngnvt"

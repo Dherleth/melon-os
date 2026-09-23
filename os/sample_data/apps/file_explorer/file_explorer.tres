@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="OsAppDefinition" format=3 uid="uid://ddgo6flmur4it"]
 
-[ext_resource type="Texture2D" uid="uid://bns4jbw7ldrvt" path="res://os/data/apps/file_explorer/file_explorer_icon.png" id="1_jkbb0"]
+[ext_resource type="Texture2D" uid="uid://bns4jbw7ldrvt" path="res://os/sample_data/apps/file_explorer/file_explorer_icon.png" id="1_jkbb0"]
 [ext_resource type="Script" uid="uid://byd2cixpj61b3" path="res://os/core/os_app/os_app_definition.gd" id="1_rodtw"]
-[ext_resource type="PackedScene" uid="uid://be1mvvn43le1e" path="res://os/data/apps/file_explorer/file_explorer.tscn" id="2_jkbb0"]
+[ext_resource type="PackedScene" uid="uid://be1mvvn43le1e" path="res://os/sample_data/apps/file_explorer/file_explorer.tscn" id="2_jkbb0"]
 
 [resource]
 script = ExtResource("1_rodtw")

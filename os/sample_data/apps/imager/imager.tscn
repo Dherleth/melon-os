@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bvd5ptndqacmv"]
 
-[ext_resource type="Script" uid="uid://dxdw68h5hdoj8" path="res://os/data/apps/imager/imager.gd" id="1_m26d1"]
+[ext_resource type="Script" uid="uid://dxdw68h5hdoj8" path="res://os/sample_data/apps/imager/imager.gd" id="1_m26d1"]
 
 [node name="Imager" type="Control" unique_id=1692880179]
 layout_mode = 3

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="OsAppDefinition" format=3 uid="uid://bpmpn5u1pd3sb"]
+
+[ext_resource type="Texture2D" uid="uid://c7us6mmtc3lhf" path="res://os/core/os_app/default_app_icon.png" id="1_0d2yb"]
+[ext_resource type="Script" uid="uid://byd2cixpj61b3" path="res://os/core/os_app/os_app_definition.gd" id="2_7so80"]
+
+[resource]
+script = ExtResource("2_7so80")
+id = &"sounder"
+name = "sounder"
+icon = ExtResource("1_0d2yb")
+allow_multiple_instances = true
+metadata/_custom_type_script = "uid://byd2cixpj61b3"

@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://c8nltke787h75"]
 
 [ext_resource type="Script" uid="uid://dh1rl68rwswxb" path="res://you_main_scene.gd" id="1_dfe2i"]
-[ext_resource type="PackedScene" uid="uid://lilq36fnlmsl" path="res://os/core/os_system/os_system.tscn" id="2_xk86t"]
 
 [node name="Main" type="Control" unique_id=50612738]
 layout_mode = 3
@@ -12,7 +11,6 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 script = ExtResource("1_dfe2i")
-os_scene = ExtResource("2_xk86t")
 
 [node name="Button" type="Button" parent="." unique_id=1890010458]
 layout_mode = 1

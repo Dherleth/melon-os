@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bvkmd8rv7q86w"]
 
 [ext_resource type="Script" uid="uid://ca586orgtugdh" path="res://os/core/os_desktop/os_desktop_button.gd" id="1_gu0vb"]
-[ext_resource type="Texture2D" uid="uid://dql2sa6ht6tfw" path="res://os/data/apps/texter/texter_icon.png" id="2_ywm7w"]
+[ext_resource type="Texture2D" uid="uid://c7us6mmtc3lhf" path="res://os/core/os_app/default_app_icon.png" id="2_gu0vb"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ywm7w"]
 
@@ -47,7 +47,7 @@ custom_maximum_size = Vector2(75, -1)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
-texture = ExtResource("2_ywm7w")
+texture = ExtResource("2_gu0vb")
 expand_mode = 1
 stretch_mode = 5
 

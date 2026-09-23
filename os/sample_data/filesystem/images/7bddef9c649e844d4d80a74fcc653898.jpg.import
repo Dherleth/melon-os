@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cwo753yxhad1u"
-path="res://.godot/imported/melon.png-2a054400cabd8994bc704c8cb685dabd.ctex"
+uid="uid://cs5nksm6atwo"
+path="res://.godot/imported/7bddef9c649e844d4d80a74fcc653898.jpg-f418a0f98e5259d9365b4a82d3790673.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://os/data/filesystem/images/melon.png"
-dest_files=["res://.godot/imported/melon.png-2a054400cabd8994bc704c8cb685dabd.ctex"]
+source_file="res://os/sample_data/filesystem/images/7bddef9c649e844d4d80a74fcc653898.jpg"
+dest_files=["res://.godot/imported/7bddef9c649e844d4d80a74fcc653898.jpg-f418a0f98e5259d9365b4a82d3790673.ctex"]
 
 [params]
 

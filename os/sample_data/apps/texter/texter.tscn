@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b713uth77xbcq"]
 
-[ext_resource type="Script" uid="uid://cpxcgyjqgvdqa" path="res://os/data/apps/texter/texter.gd" id="1_c5rpp"]
+[ext_resource type="Script" uid="uid://cpxcgyjqgvdqa" path="res://os/sample_data/apps/texter/texter.gd" id="1_c5rpp"]
 
 [node name="Texter" type="Control" unique_id=1012223578]
 layout_mode = 3

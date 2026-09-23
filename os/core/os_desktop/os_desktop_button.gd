@@ -9,7 +9,9 @@ var full_path := ""
 
 
 func setup(filepath: String, icon: Texture2D) -> void:
-	texture_rect.texture = icon
+	if icon:
+		texture_rect.texture = icon
+		
 	full_path = filepath
 	
 	var filename := filepath.get_file()

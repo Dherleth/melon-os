@@ -4,7 +4,7 @@ extends OsAppScene
 @onready var folders_list: VBoxContainer = $MarginContainer2/HBoxContainer/ScrollContainer2/FoldersList
 @onready var path_input: LineEdit = $MarginContainer/PathInput
 
-var file_button_scene := preload("res://os/data/apps/file_explorer/file_button.tscn")
+var file_button_scene := preload("res://os/sample_data/apps/file_explorer/file_button.tscn")
 var fake_fs_base_path := "M://"
 
 func setup() -> void:
