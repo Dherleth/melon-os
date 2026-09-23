@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dbop60mi5qu3e" path="res://os/core/os_window_container/os_window_container.tscn" id="3_nhvy6"]
 [ext_resource type="PackedScene" uid="uid://3vsmcanloltf" path="res://os/core/os_notification_center/os_notification_center.tscn" id="4_l4gxm"]
 [ext_resource type="PackedScene" uid="uid://drbgm0ket2lf5" path="res://os/core/os_task_bar/os_task_bar.tscn" id="4_nhvy6"]
+[ext_resource type="PackedScene" uid="uid://bv4g43e1qp03m" path="res://os/core/os_loading_screen/os_loading_screen.tscn" id="6_0x6cc"]
 
 [node name="OsSystem" type="Control" unique_id=1276379304]
 layout_mode = 3
@@ -15,7 +16,15 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_l4gxm")
 
-[node name="Background" type="TextureRect" parent="." unique_id=709703283]
+[node name="LoggedLayer" type="Control" parent="." unique_id=1555747019]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="OsBackground" type="TextureRect" parent="LoggedLayer" unique_id=709703283]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -24,29 +33,50 @@ grow_horizontal = 2
 grow_vertical = 2
 stretch_mode = 6
 
-[node name="OsDesktop" parent="." unique_id=1876509325 instance=ExtResource("2_l4gxm")]
+[node name="OsDesktop" parent="LoggedLayer" unique_id=1876509325 instance=ExtResource("2_l4gxm")]
 layout_mode = 1
 anchors_preset = -1
 anchor_bottom = 0.9537037
 metadata/_edit_use_anchors_ = true
 
-[node name="OsWindowContainer" parent="." unique_id=569395539 instance=ExtResource("3_nhvy6")]
+[node name="OsWindowContainer" parent="LoggedLayer" unique_id=569395539 instance=ExtResource("3_nhvy6")]
 layout_mode = 0
 grow_horizontal = 1
 grow_vertical = 1
 
-[node name="OsTaskBar" parent="." unique_id=656516641 instance=ExtResource("4_nhvy6")]
+[node name="OsTaskBar" parent="LoggedLayer" unique_id=656516641 instance=ExtResource("4_nhvy6")]
 layout_mode = 1
 offset_top = -50.0
 offset_bottom = -50.0
 
-[node name="OsNotificationCenter" parent="." unique_id=1243728760 instance=ExtResource("4_l4gxm")]
+[node name="OsNotificationCenter" parent="LoggedLayer" unique_id=1243728760 instance=ExtResource("4_l4gxm")]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -240.0
+offset_left = 1640.0
 offset_top = 20.0
-offset_right = -20.0
-offset_bottom = 141.0
+offset_right = 1860.0
+offset_bottom = 1020.0
 grow_horizontal = 0
+
+[node name="LoginScreenLayer" type="Control" parent="." unique_id=259842042]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LoadingScreenLayer" type="Control" parent="." unique_id=671019625]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="OsLoadingScreen" parent="LoadingScreenLayer" unique_id=893764750 instance=ExtResource("6_0x6cc")]
+layout_mode = 1

@@ -1,0 +1,105 @@
+[gd_scene format=3 uid="uid://bv4g43e1qp03m"]
+
+[ext_resource type="Script" uid="uid://b1g5x0ftyuhca" path="res://os/core/os_loading_screen/os_loading_screen.gd" id="1_th2s3"]
+[ext_resource type="Texture2D" uid="uid://cwo753yxhad1u" path="res://os/core/os_loading_screen/os_loading_screen_icon.png" id="1_wbtr7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_th2s3"]
+bg_color = Color(0.6, 0.6, 0.6, 0.1764706)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6mq8n"]
+bg_color = Color(1, 1, 1, 0.9254902)
+
+[sub_resource type="Animation" id="Animation_eo1bt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ProgressBar:value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [100.0]
+}
+
+[sub_resource type="Animation" id="Animation_ec75j"]
+resource_name = "load"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ProgressBar:value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.6666667, 0.8, 1.0666667, 1.8333334, 2.0666666, 2.3, 2.4666667, 2.9333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0.0, 5.0, 10.0, 30.0, 45.0, 75.0, 75.0, 80.0, 80.0, 100.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t800u"]
+_data = {
+&"RESET": SubResource("Animation_eo1bt"),
+&"load": SubResource("Animation_ec75j")
+}
+
+[node name="OsLoadingScreen" type="Control" unique_id=893764750]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_th2s3")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=885941520]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.12955844, 0.12955847, 0.12955844, 1)
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=220052255]
+custom_minimum_size = Vector2(200, 200)
+custom_maximum_size = Vector2(200, 200)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -340.0
+offset_right = 100.0
+offset_bottom = -140.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_wbtr7")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1681221277]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -350.0
+offset_top = -13.5
+offset_right = 350.0
+offset_bottom = 13.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_th2s3")
+theme_override_styles/fill = SubResource("StyleBoxFlat_6mq8n")
+value = 100.0
+show_percentage = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=910911800]
+libraries/ = SubResource("AnimationLibrary_t800u")

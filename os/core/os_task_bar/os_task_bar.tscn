@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://drbgm0ket2lf5"]
 
 [ext_resource type="Script" uid="uid://cfn7tw0tdq3wj" path="res://os/core/os_task_bar/os_task_bar.gd" id="1_h132n"]
-[ext_resource type="Texture2D" uid="uid://b73yw38up2hm2" path="res://os/core/os_task_bar/start_button_icon.png" id="2_8jesn"]
+[ext_resource type="Texture2D" uid="uid://b73yw38up2hm2" path="res://os/core/os_task_bar/os_start_button_icon.png" id="2_8jesn"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l4ecp"]
 content_margin_left = 4.0
