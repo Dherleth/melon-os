@@ -44,3 +44,11 @@ func _on_shutdown_button_pressed() -> void:
 
 func _on_start_button_toggled(toggled_on: bool) -> void:
 	menu.visible = toggled_on
+
+
+func _on_disconnect_button_pressed() -> void:
+	os_system.add_notification("Nothing happens")
+
+
+func _on_settings_button_pressed() -> void:
+	os_system.add_notification("Nothing happens")
