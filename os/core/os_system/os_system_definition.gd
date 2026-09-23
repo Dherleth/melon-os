@@ -8,3 +8,4 @@ extends Resource
 
 @export_group("Desktop")
 @export var desktop_icons_per_column := 8
+@export var background: Texture2D

@@ -5,6 +5,7 @@ signal turned_off(os_system: OsSystem)
 
 @export var os_definition: OsSystemDefinition = preload("res://os/sample_data/sample_os_definiton.tres")
 
+@onready var background: TextureRect = $Background
 @onready var os_window_container: OsWindowsContainer = $OsWindowContainer
 @onready var os_task_bar: OsTaskBar = $OsTaskBar
 @onready var os_notification_center: OsNotificationCenter = $OsNotificationCenter
@@ -14,6 +15,7 @@ var app_manager: OsAppManager = OsAppManager.new()
 
 func _ready() -> void:
 	hide()
+	background.texture = os_definition.background
 	app_manager.os_system = self
 	app_manager.windows_container = os_window_container
 	app_manager.task_bar = os_task_bar
