@@ -3,7 +3,7 @@ extends Control
 
 signal turned_off(os_system: OsSystem)
 
-@export var os_definition: OsSystemDefinition = preload("res://os/sample_data/sample_os_definiton.tres")
+@export var os_definition: OsSystemDefinition = preload("res://os/data/os_definiton.tres")
 
 @onready var os_background: TextureRect = $LoggedLayer/OsBackground
 @onready var os_window_container: OsWindowsContainer = $LoggedLayer/OsWindowContainer
@@ -85,7 +85,7 @@ func turn_off() -> void:
 	
 	
 # Helper to easily create a new OsSystem instance without passing the scene path around.
-# You can provide your own OS definition or use the default one (already set in the scene)
+# You can provide your own OS definition or use the default one (already set in the os scene)
 static func create(os_definition_p: OsSystemDefinition = null) -> OsSystem:
 	var os_instance = preload("res://os/core/os_system/os_system.tscn").instantiate() as OsSystem
 	if os_definition_p:

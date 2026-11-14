@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="OsAppDefinition" format=3 uid="uid://bk6ropkav4qox"]
+
+[ext_resource type="Texture2D" uid="uid://c7us6mmtc3lhf" path="res://os/core/os_app/default_app_icon.png" id="1_bx4dw"]
+[ext_resource type="PackedScene" uid="uid://bhm516cjhlvdl" path="res://os/data/apps/wacky_pedia/wacky_pedia.tscn" id="2_0lb6e"]
+[ext_resource type="Script" uid="uid://byd2cixpj61b3" path="res://os/core/os_app/os_app_definition.gd" id="2_bqe1k"]
+
+[resource]
+script = ExtResource("2_bqe1k")
+id = &"wacky_pedia"
+name = "WackyPedia"
+scene = ExtResource("2_0lb6e")
+default_size = Vector2(900, 800)
+metadata/_custom_type_script = "uid://byd2cixpj61b3"

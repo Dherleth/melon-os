@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="OsSystemDefinition" format=3 uid="uid://beu562sw1tbus"]
+
+[ext_resource type="Script" uid="uid://byd2cixpj61b3" path="res://os/core/os_app/os_app_definition.gd" id="1_x6a8o"]
+[ext_resource type="Resource" uid="uid://ddgo6flmur4it" path="res://os/data/apps/file_explorer/file_explorer.tres" id="2_7etay"]
+[ext_resource type="Resource" uid="uid://dcfc4e0325oy3" path="res://os/data/apps/imager/imager.tres" id="3_1fll2"]
+[ext_resource type="Resource" uid="uid://da50ainwj438x" path="res://os/data/apps/texter/texter.tres" id="4_s0c0a"]
+[ext_resource type="Resource" uid="uid://bpmpn5u1pd3sb" path="res://os/data/apps/sounder/sounder.tres" id="5_hdf4j"]
+[ext_resource type="Resource" uid="uid://bk6ropkav4qox" path="res://os/data/apps/wacky_pedia/wacky_pedia.tres" id="6_hr7we"]
+[ext_resource type="Script" uid="uid://bwkjhovlngnvt" path="res://os/core/os_system/os_system_definition.gd" id="7_70e62"]
+
+[resource]
+script = ExtResource("7_70e62")
+filesystem_base_path = "res://os/data/filesystem/"
+extensions_to_hide = Array[String](["import"])
+file_associations = Dictionary[String, ExtResource("1_x6a8o")]({
+"": ExtResource("2_7etay"),
+"gif": ExtResource("3_1fll2"),
+"jpeg": ExtResource("3_1fll2"),
+"jpg": ExtResource("3_1fll2"),
+"md": ExtResource("4_s0c0a"),
+"mp3": ExtResource("5_hdf4j"),
+"ogg": ExtResource("5_hdf4j"),
+"png": ExtResource("3_1fll2"),
+"txt": ExtResource("4_s0c0a"),
+"wacky": ExtResource("6_hr7we"),
+"wav": ExtResource("5_hdf4j"),
+"webp": ExtResource("3_1fll2")
+})
+metadata/_custom_type_script = "uid://bwkjhovlngnvt"
