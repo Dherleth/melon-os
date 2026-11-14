@@ -1,0 +1,12 @@
+{
+	"mario" : [
+		"mario",
+		"super mario",
+		"plumber",
+		"pipe"
+	],
+	"yoshi" : [
+		"yoshi",
+		"dinosaur",
+	]
+}
