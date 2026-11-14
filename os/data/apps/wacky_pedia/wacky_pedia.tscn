@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bhm516cjhlvdl"]
 
 [ext_resource type="Script" uid="uid://cota0klirdnwl" path="res://os/data/apps/wacky_pedia/wacky_pedia.gd" id="1_otia1"]
+[ext_resource type="Texture2D" uid="uid://kllvt1q715xs" path="res://os/data/apps/wacky_pedia/pages/mario.png" id="2_11eqq"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6vidm"]
 
@@ -14,44 +15,53 @@ grow_vertical = 2
 script = ExtResource("1_otia1")
 metadata/_custom_type_script = "uid://b5wuw0pu8lp2o"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=186655247]
+[node name="HomePage" type="Control" parent="." unique_id=210833233]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HomePage" unique_id=186655247]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 134.0
+offset_bottom = 271.0
 grow_horizontal = 2
 
-[node name="HSeparator2" type="HSeparator" parent="VBoxContainer" unique_id=1198901258]
+[node name="HSeparator2" type="HSeparator" parent="HomePage/VBoxContainer" unique_id=1198901258]
 layout_mode = 2
 theme_override_constants/separation = 100
 theme_override_styles/separator = SubResource("StyleBoxEmpty_6vidm")
 
-[node name="Label" type="Label" parent="VBoxContainer" unique_id=382598835]
+[node name="Label" type="Label" parent="HomePage/VBoxContainer" unique_id=382598835]
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "WackyPedia"
 horizontal_alignment = 1
 
-[node name="HSeparator" type="HSeparator" parent="VBoxContainer" unique_id=314798090]
+[node name="HSeparator" type="HSeparator" parent="HomePage/VBoxContainer" unique_id=314798090]
 layout_mode = 2
 theme_override_constants/separation = 50
 theme_override_styles/separator = SubResource("StyleBoxEmpty_6vidm")
 
-[node name="SearchBar" type="LineEdit" parent="VBoxContainer" unique_id=1905263831]
+[node name="SearchBar" type="LineEdit" parent="HomePage/VBoxContainer" unique_id=1905263831]
 custom_minimum_size = Vector2(500, 40)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 keep_editing_on_text_submit = true
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=396869885]
+[node name="MarginContainer" type="MarginContainer" parent="HomePage" unique_id=396869885]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.6194443
 anchor_right = 1.0
 anchor_bottom = 1.1749998
 offset_top = -189.0
-offset_bottom = -189.0
+offset_bottom = -171.22217
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/margin_left = 20
@@ -60,14 +70,163 @@ theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 metadata/_edit_use_anchors_ = true
 
-[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer" unique_id=1329868766]
+[node name="ScrollContainer" type="ScrollContainer" parent="HomePage/MarginContainer" unique_id=1329868766]
 layout_mode = 2
 
-[node name="GridContainer" type="GridContainer" parent="MarginContainer/ScrollContainer" unique_id=255295195]
+[node name="GridContainer" type="GridContainer" parent="HomePage/MarginContainer/ScrollContainer" unique_id=255295195]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 3
 theme_override_constants/h_separation = 40
 columns = 7
 
-[connection signal="text_submitted" from="VBoxContainer/SearchBar" to="." method="_on_search_bar_text_submitted"]
+[node name="ResultPage" type="Control" parent="." unique_id=2118651586]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ResultPage" unique_id=2083103300]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ResultPage/ScrollContainer" unique_id=1474016439]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ResultPage/ScrollContainer/MarginContainer" unique_id=501581590]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ResultPage/ScrollContainer/MarginContainer/VBoxContainer" unique_id=1840379198]
+layout_mode = 2
+
+[node name="PageTitle" type="Label" parent="ResultPage/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1316267421]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 50
+text = "Page title"
+
+[node name="PageImage" type="TextureRect" parent="ResultPage/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1474144597]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 200)
+custom_maximum_size = Vector2(200, 200)
+layout_mode = 2
+texture = ExtResource("2_11eqq")
+stretch_mode = 5
+
+[node name="HSeparator" type="HSeparator" parent="ResultPage/ScrollContainer/MarginContainer/VBoxContainer" unique_id=598592088]
+layout_mode = 2
+theme_override_constants/separation = 50
+theme_override_styles/separator = SubResource("StyleBoxEmpty_6vidm")
+
+[node name="PageText" type="RichTextLabel" parent="ResultPage/ScrollContainer/MarginContainer/VBoxContainer" unique_id=1433673501]
+unique_name_in_owner = true
+layout_mode = 2
+bbcode_enabled = true
+text = "Mario (/ˈmɑːrioʊ, ˈmærioʊ/ ⓘ MAR(R)-ee-oh; Japanese: マリオ) is a character created by Japanese video game designer Shigeru Miyamoto.
+He is the star of the Mario franchise, a recurring character in the Donkey Kong franchise, and the mascot of their owner, the Japanese company Nintendo.
+Mario is an Italian-American plumber who lives in the Mushroom Kingdom with his younger twin brother, Luigi.
+Their adventures generally involve rescuing Princess Peach from the villain Bowser while using power-ups that give them different abilities.
+Mario is distinguished by his large nose and mustache, overalls, red cap, and high-pitched, exaggerated Italian accent. Prior to being named Mario, the character was referred to as Ossan, Mr. Video, and Jumpman.
+He's best friend is Yoshi
+
+Mario (/ˈmɑːrioʊ, ˈmærioʊ/ ⓘ MAR(R)-ee-oh; Japanese: マリオ) is a character created by Japanese video game designer Shigeru Miyamoto.
+He is the star of the Mario franchise, a recurring character in the Donkey Kong franchise, and the mascot of their owner, the Japanese company Nintendo.
+Mario is an Italian-American plumber who lives in the Mushroom Kingdom with his younger twin brother, Luigi.
+Their adventures generally involve rescuing Princess Peach from the villain Bowser while using power-ups that give them different abilities.
+Mario is distinguished by his large nose and mustache, overalls, red cap, and high-pitched, exaggerated Italian accent. Prior to being named Mario, the character was referred to as Ossan, Mr. Video, and Jumpman.
+He's best friend is Yoshi
+
+Mario (/ˈmɑːrioʊ, ˈmærioʊ/ ⓘ MAR(R)-ee-oh; Japanese: マリオ) is a character created by Japanese video game designer Shigeru Miyamoto.
+He is the star of the Mario franchise, a recurring character in the Donkey Kong franchise, and the mascot of their owner, the Japanese company Nintendo.
+Mario is an Italian-American plumber who lives in the Mushroom Kingdom with his younger twin brother, Luigi.
+Their adventures generally involve rescuing Princess Peach from the villain Bowser while using power-ups that give them different abilities.
+Mario is distinguished by his large nose and mustache, overalls, red cap, and high-pitched, exaggerated Italian accent. Prior to being named Mario, the character was referred to as Ossan, Mr. Video, and Jumpman.
+He's best friend is Yoshi
+
+Mario (/ˈmɑːrioʊ, ˈmærioʊ/ ⓘ MAR(R)-ee-oh; Japanese: マリオ) is a character created by Japanese video game designer Shigeru Miyamoto.
+He is the star of the Mario franchise, a recurring character in the Donkey Kong franchise, and the mascot of their owner, the Japanese company Nintendo.
+Mario is an Italian-American plumber who lives in the Mushroom Kingdom with his younger twin brother, Luigi.
+Their adventures generally involve rescuing Princess Peach from the villain Bowser while using power-ups that give them different abilities.
+Mario is distinguished by his large nose and mustache, overalls, red cap, and high-pitched, exaggerated Italian accent. Prior to being named Mario, the character was referred to as Ossan, Mr. Video, and Jumpman.
+He's best friend is Yoshi
+
+Mario (/ˈmɑːrioʊ, ˈmærioʊ/ ⓘ MAR(R)-ee-oh; Japanese: マリオ) is a character created by Japanese video game designer Shigeru Miyamoto.
+He is the star of the Mario franchise, a recurring character in the Donkey Kong franchise, and the mascot of their owner, the Japanese company Nintendo.
+Mario is an Italian-American plumber who lives in the Mushroom Kingdom with his younger twin brother, Luigi.
+Their adventures generally involve rescuing Princess Peach from the villain Bowser while using power-ups that give them different abilities.
+Mario is distinguished by his large nose and mustache, overalls, red cap, and high-pitched, exaggerated Italian accent. Prior to being named Mario, the character was referred to as Ossan, Mr. Video, and Jumpman.
+He's best friend is Yoshi
+Mario (/ˈmɑːrioʊ, ˈmærioʊ/ ⓘ MAR(R)-ee-oh; Japanese: マリオ) is a character created by Japanese video game designer Shigeru Miyamoto.
+He is the star of the Mario franchise, a recurring character in the Donkey Kong franchise, and the mascot of their owner, the Japanese company Nintendo.
+Mario is an Italian-American plumber who lives in the Mushroom Kingdom with his younger twin brother, Luigi.
+Their adventures generally involve rescuing Princess Peach from the villain Bowser while using power-ups that give them different abilities.
+Mario is distinguished by his large nose and mustache, overalls, red cap, and high-pitched, exaggerated Italian accent. Prior to being named Mario, the character was referred to as Ossan, Mr. Video, and Jumpman.
+He's best friend is Yoshi
+
+Mario (/ˈmɑːrioʊ, ˈmærioʊ/ ⓘ MAR(R)-ee-oh; Japanese: マリオ) is a character created by Japanese video game designer Shigeru Miyamoto.
+He is the star of the Mario franchise, a recurring character in the Donkey Kong franchise, and the mascot of their owner, the Japanese company Nintendo.
+Mario is an Italian-American plumber who lives in the Mushroom Kingdom with his younger twin brother, Luigi.
+Their adventures generally involve rescuing Princess Peach from the villain Bowser while using power-ups that give them different abilities.
+Mario is distinguished by his large nose and mustache, overalls, red cap, and high-pitched, exaggerated Italian accent. Prior to being named Mario, the character was referred to as Ossan, Mr. Video, and Jumpman.
+He's best friend is Yoshi
+
+Mario (/ˈmɑːrioʊ, ˈmærioʊ/ ⓘ MAR(R)-ee-oh; Japanese: マリオ) is a character created by Japanese video game designer Shigeru Miyamoto.
+He is the star of the Mario franchise, a recurring character in the Donkey Kong franchise, and the mascot of their owner, the Japanese company Nintendo.
+Mario is an Italian-American plumber who lives in the Mushroom Kingdom with his younger twin brother, Luigi.
+Their adventures generally involve rescuing Princess Peach from the villain Bowser while using power-ups that give them different abilities.
+Mario is distinguished by his large nose and mustache, overalls, red cap, and high-pitched, exaggerated Italian accent. Prior to being named Mario, the character was referred to as Ossan, Mr. Video, and Jumpman.
+He's best friend is Yoshi
+
+Mario (/ˈmɑːrioʊ, ˈmærioʊ/ ⓘ MAR(R)-ee-oh; Japanese: マリオ) is a character created by Japanese video game designer Shigeru Miyamoto.
+He is the star of the Mario franchise, a recurring character in the Donkey Kong franchise, and the mascot of their owner, the Japanese company Nintendo.
+Mario is an Italian-American plumber who lives in the Mushroom Kingdom with his younger twin brother, Luigi.
+Their adventures generally involve rescuing Princess Peach from the villain Bowser while using power-ups that give them different abilities.
+Mario is distinguished by his large nose and mustache, overalls, red cap, and high-pitched, exaggerated Italian accent. Prior to being named Mario, the character was referred to as Ossan, Mr. Video, and Jumpman.
+He's best friend is Yoshi
+Mario (/ˈmɑːrioʊ, ˈmærioʊ/ ⓘ MAR(R)-ee-oh; Japanese: マリオ) is a character created by Japanese video game designer Shigeru Miyamoto.
+He is the star of the Mario franchise, a recurring character in the Donkey Kong franchise, and the mascot of their owner, the Japanese company Nintendo.
+Mario is an Italian-American plumber who lives in the Mushroom Kingdom with his younger twin brother, Luigi.
+Their adventures generally involve rescuing Princess Peach from the villain Bowser while using power-ups that give them different abilities.
+Mario is distinguished by his large nose and mustache, overalls, red cap, and high-pitched, exaggerated Italian accent. Prior to being named Mario, the character was referred to as Ossan, Mr. Video, and Jumpman.
+He's best friend is Yoshi
+
+Mario (/ˈmɑːrioʊ, ˈmærioʊ/ ⓘ MAR(R)-ee-oh; Japanese: マリオ) is a character created by Japanese video game designer Shigeru Miyamoto.
+He is the star of the Mario franchise, a recurring character in the Donkey Kong franchise, and the mascot of their owner, the Japanese company Nintendo.
+Mario is an Italian-American plumber who lives in the Mushroom Kingdom with his younger twin brother, Luigi.
+Their adventures generally involve rescuing Princess Peach from the villain Bowser while using power-ups that give them different abilities.
+Mario is distinguished by his large nose and mustache, overalls, red cap, and high-pitched, exaggerated Italian accent. Prior to being named Mario, the character was referred to as Ossan, Mr. Video, and Jumpman.
+He's best friend is Yoshi
+
+Mario (/ˈmɑːrioʊ, ˈmærioʊ/ ⓘ MAR(R)-ee-oh; Japanese: マリオ) is a character created by Japanese video game designer Shigeru Miyamoto.
+He is the star of the Mario franchise, a recurring character in the Donkey Kong franchise, and the mascot of their owner, the Japanese company Nintendo.
+Mario is an Italian-American plumber who lives in the Mushroom Kingdom with his younger twin brother, Luigi.
+Their adventures generally involve rescuing Princess Peach from the villain Bowser while using power-ups that give them different abilities.
+Mario is distinguished by his large nose and mustache, overalls, red cap, and high-pitched, exaggerated Italian accent. Prior to being named Mario, the character was referred to as Ossan, Mr. Video, and Jumpman.
+He's best friend is Yoshi
+Mario (/ˈmɑːrioʊ, ˈmærioʊ/ ⓘ MAR(R)-ee-oh; Japanese: マリオ) is a character created by Japanese video game designer Shigeru Miyamoto.
+He is the star of the Mario franchise, a recurring character in the Donkey Kong franchise, and the mascot of their owner, the Japanese company Nintendo.
+Mario is an Italian-American plumber who lives in the Mushroom Kingdom with his younger twin brother, Luigi.
+Their adventures generally involve rescuing Princess Peach from the villain Bowser while using power-ups that give them different abilities.
+Mario is distinguished by his large nose and mustache, overalls, red cap, and high-pitched, exaggerated Italian accent. Prior to being named Mario, the character was referred to as Ossan, Mr. Video, and Jumpman.
+He's best friend is Yoshi
+
+"
+fit_content = true
+
+[connection signal="text_submitted" from="HomePage/VBoxContainer/SearchBar" to="." method="_on_search_bar_text_submitted"]
