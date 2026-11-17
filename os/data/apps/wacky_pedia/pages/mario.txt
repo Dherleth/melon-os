@@ -1,4 +1,4 @@
-[wacky_title]Mario the plumber
+[wacky_title]Mario the plumber[/wacky_title]
 [wacky_image]
 Mario (/ˈmɑːrioʊ, ˈmærioʊ/ ⓘ MAR(R)-ee-oh; Japanese: マリオ) is a character created by Japanese video game designer Shigeru Miyamoto.
 He is the star of the Mario franchise, a recurring character in the Donkey Kong franchise, and the mascot of their owner, the Japanese company Nintendo.

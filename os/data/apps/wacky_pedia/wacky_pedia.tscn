@@ -4,6 +4,12 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6vidm"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_11eqq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2qviq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dm21l"]
+
 [node name="WackyPedia" type="Control" unique_id=1984083542]
 layout_mode = 3
 anchors_preset = 15
@@ -15,7 +21,6 @@ script = ExtResource("1_otia1")
 metadata/_custom_type_script = "uid://b5wuw0pu8lp2o"
 
 [node name="HomePage" type="Control" parent="." unique_id=210833233]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -25,10 +30,11 @@ grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HomePage" unique_id=186655247]
 layout_mode = 1
-anchors_preset = 10
+anchors_preset = 15
 anchor_right = 1.0
-offset_bottom = 271.0
+anchor_bottom = 1.0
 grow_horizontal = 2
+grow_vertical = 2
 
 [node name="HSeparator2" type="HSeparator" parent="HomePage/VBoxContainer" unique_id=1198901258]
 layout_mode = 2
@@ -47,39 +53,40 @@ theme_override_constants/separation = 50
 theme_override_styles/separator = SubResource("StyleBoxEmpty_6vidm")
 
 [node name="SearchBar" type="LineEdit" parent="HomePage/VBoxContainer" unique_id=1905263831]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(500, 40)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 keep_editing_on_text_submit = true
 
-[node name="MarginContainer" type="MarginContainer" parent="HomePage" unique_id=396869885]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.6194443
-anchor_right = 1.0
-anchor_bottom = 1.1749998
-offset_top = -189.0
-offset_bottom = -171.22217
-grow_horizontal = 2
-grow_vertical = 0
+[node name="HSeparator3" type="HSeparator" parent="HomePage/VBoxContainer" unique_id=884353961]
+layout_mode = 2
+theme_override_constants/separation = 50
+theme_override_styles/separator = SubResource("StyleBoxEmpty_6vidm")
+
+[node name="MarginContainer" type="MarginContainer" parent="HomePage/VBoxContainer" unique_id=396869885]
+layout_mode = 2
+size_flags_vertical = 3
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 metadata/_edit_use_anchors_ = true
 
-[node name="ScrollContainer" type="ScrollContainer" parent="HomePage/MarginContainer" unique_id=1329868766]
+[node name="ScrollContainer" type="ScrollContainer" parent="HomePage/VBoxContainer/MarginContainer" unique_id=1329868766]
 layout_mode = 2
 
-[node name="GridContainer" type="GridContainer" parent="HomePage/MarginContainer/ScrollContainer" unique_id=255295195]
+[node name="FoundPagesContainer" type="GridContainer" parent="HomePage/VBoxContainer/MarginContainer/ScrollContainer" unique_id=255295195]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 3
 theme_override_constants/h_separation = 40
-columns = 7
+columns = 3
 
 [node name="ResultPage" type="Control" parent="." unique_id=2118651586]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -109,24 +116,16 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ResultPage/ScrollContainer/MarginContainer/VBoxContainer" unique_id=1134027782]
-custom_minimum_size = Vector2(0, 100)
-custom_maximum_size = Vector2(-1, 100)
-layout_mode = 2
-
-[node name="Button" type="Button" parent="ResultPage/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=860148962]
-custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
-text = "< Mario The Plumber"
-
-[node name="Button2" type="Button" parent="ResultPage/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=2018990007]
+[node name="HomeButton" type="Button" parent="ResultPage/ScrollContainer/MarginContainer/VBoxContainer" unique_id=2018990007]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxEmpty_11eqq")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_2qviq")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_dm21l")
 text = "WackyPedia"
-
-[node name="Button3" type="Button" parent="ResultPage/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1863062123]
-custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
+alignment = 0
 
 [node name="PageText" type="RichTextLabel" parent="ResultPage/ScrollContainer/MarginContainer/VBoxContainer" unique_id=1433673501]
 unique_name_in_owner = true
@@ -227,4 +226,5 @@ meta_underlined = false
 hint_underlined = false
 
 [connection signal="text_submitted" from="HomePage/VBoxContainer/SearchBar" to="." method="_on_search_bar_text_submitted"]
+[connection signal="pressed" from="ResultPage/ScrollContainer/MarginContainer/VBoxContainer/HomeButton" to="." method="_on_home_button_pressed"]
 [connection signal="meta_clicked" from="ResultPage/ScrollContainer/MarginContainer/VBoxContainer/PageText" to="." method="_on_page_text_meta_clicked"]

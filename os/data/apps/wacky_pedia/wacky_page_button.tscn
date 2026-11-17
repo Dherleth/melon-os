@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://i1wbbcsryodi"]
+
+[ext_resource type="Script" uid="uid://by3duetjbxdud" path="res://os/data/apps/wacky_pedia/wacky_page_button.gd" id="1_h4jf3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_acx1j"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kjb2j"]
+
+[node name="WackyPageButton" type="Button" unique_id=708671047]
+theme_override_styles/normal = SubResource("StyleBoxEmpty_acx1j")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_kjb2j")
+text = "Page title"
+script = ExtResource("1_h4jf3")

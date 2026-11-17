@@ -1,4 +1,4 @@
-[wacky_title]Yoshi the last dinosaur
+[wacky_title]Yoshi the last dinosaur[/wacky_title]
 [wacky_image]
 Yoshi is a fictional character who appears in video games published by Nintendo.
 He was designed by Shigefumi Hino and first appeared in Super Mario World (1990) for the Super Nintendo Entertainment System as a rideable companion for [wacky_link=mario]Mario[/wacky_link] and Luigi.
