@@ -5,6 +5,7 @@ extends OsAppScene
 @onready var result_page: Control = $ResultPage
 @onready var search_bar: LineEdit = %SearchBar
 @onready var found_pages_container: GridContainer = %FoundPagesContainer
+@onready var animation_player: AnimationPlayer = %AnimationPlayer
 
 var wacky_page_button_scene = preload("res://os/data/apps/wacky_pedia/wacky_page_button.tscn")
 var page_matching := {} #populated from the config json file
@@ -49,11 +50,13 @@ func _go_to_wacky_page(page_key: String) -> void:
 			
 			
 func _on_search_bar_text_submitted(query: String) -> void:
-	var page_key = _get_page_key(query)
+	var page_key = _get_page_key(query.to_lower())
 	
 	if page_key != "":
 		search_bar.text = ""
 		_go_to_wacky_page(page_key)
+	else:
+		animation_player.play("wrong_search")
 			
 	
 func _get_page_text(page_key: String) -> String:
