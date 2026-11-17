@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://bhm516cjhlvdl"]
 
 [ext_resource type="Script" uid="uid://cota0klirdnwl" path="res://os/data/apps/wacky_pedia/wacky_pedia.gd" id="1_otia1"]
-[ext_resource type="Texture2D" uid="uid://kllvt1q715xs" path="res://os/data/apps/wacky_pedia/pages/mario.png" id="2_11eqq"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6vidm"]
 
@@ -110,29 +109,24 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ResultPage/ScrollContainer/MarginContainer/VBoxContainer" unique_id=1840379198]
+[node name="HBoxContainer" type="HBoxContainer" parent="ResultPage/ScrollContainer/MarginContainer/VBoxContainer" unique_id=1134027782]
+custom_minimum_size = Vector2(0, 100)
+custom_maximum_size = Vector2(-1, 100)
 layout_mode = 2
 
-[node name="PageTitle" type="Label" parent="ResultPage/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1316267421]
-unique_name_in_owner = true
+[node name="Button" type="Button" parent="ResultPage/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=860148962]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "< Mario The Plumber"
+
+[node name="Button2" type="Button" parent="ResultPage/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=2018990007]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 1
-theme_override_font_sizes/font_size = 50
-text = "Page title"
+text = "WackyPedia"
 
-[node name="PageImage" type="TextureRect" parent="ResultPage/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1474144597]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(200, 200)
-custom_maximum_size = Vector2(200, 200)
+[node name="Button3" type="Button" parent="ResultPage/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1863062123]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-texture = ExtResource("2_11eqq")
-stretch_mode = 5
-
-[node name="HSeparator" type="HSeparator" parent="ResultPage/ScrollContainer/MarginContainer/VBoxContainer" unique_id=598592088]
-layout_mode = 2
-theme_override_constants/separation = 50
-theme_override_styles/separator = SubResource("StyleBoxEmpty_6vidm")
 
 [node name="PageText" type="RichTextLabel" parent="ResultPage/ScrollContainer/MarginContainer/VBoxContainer" unique_id=1433673501]
 unique_name_in_owner = true
@@ -228,5 +222,9 @@ He's best friend is Yoshi
 
 "
 fit_content = true
+shortcut_keys_enabled = false
+meta_underlined = false
+hint_underlined = false
 
 [connection signal="text_submitted" from="HomePage/VBoxContainer/SearchBar" to="." method="_on_search_bar_text_submitted"]
+[connection signal="meta_clicked" from="ResultPage/ScrollContainer/MarginContainer/VBoxContainer/PageText" to="." method="_on_page_text_meta_clicked"]

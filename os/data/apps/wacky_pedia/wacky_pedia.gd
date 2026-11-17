@@ -1,7 +1,5 @@
 extends OsAppScene
 
-@onready var page_title: Label = %PageTitle
-@onready var page_image: TextureRect = %PageImage
 @onready var page_text: RichTextLabel = %PageText
 @onready var home_page: Control = $HomePage
 @onready var result_page: Control = $ResultPage
@@ -24,13 +22,13 @@ func _on_search_bar_text_submitted(new_text: String) -> void:
 	
 	if page_key != "":
 		var text := _get_page_text(page_key)
-		var image := _get_page_image(page_key)
 		
-		if text != "" and image != null:
-			page_title.text = "Page title still to parse"
+		if text != "":
+			text = text.replace("[wacky_title]", "[table=2][cell shrink=false expand=100][font_size=50]")
+			text = text.replace("[wacky_image]", "[/font_size][/cell][cell][img height=200 align=top,top]res://os/data/apps/wacky_pedia/pages/%s.png[/img][/cell][/table]" % page_key)
+			text = text.replace("[wacky_link=", "[wave][rainbow][url=")
+			text = text.replace("[/wacky_link]", "[/url][/rainbow][/wave]")
 			page_text.text = text
-			page_image.texture = image
-			
 			home_page.hide()
 			result_page.show()
 			
@@ -47,17 +45,7 @@ func _get_page_text(page_key: String) -> String:
 	file.close()
 	
 	return content
-	
-func _get_page_image(page_key: String) -> Texture2D:
-	var file_path := "res://os/data/apps/wacky_pedia/pages/" + page_key + ".png"
-	
-	if not FileAccess.file_exists(file_path):
-		push_error("File not found: ", file_path)
-		return null
 
-	var texture: Texture2D = load(file_path)
-	
-	return texture
 	
 func _get_page_key(query: String) -> String:
 	for key in page_matching:
@@ -87,3 +75,7 @@ func _get_page_matching() -> Dictionary:
 		return {}
 	
 	return json.data
+
+
+func _on_page_text_meta_clicked(meta: Variant) -> void:
+	_on_search_bar_text_submitted(meta)
