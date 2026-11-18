@@ -111,3 +111,16 @@ func _on_home_button_pressed() -> void:
 	home_page.show()
 	result_page.hide()
 	search_bar.grab_focus()
+
+
+func _on_home_page_gui_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+			search_bar.grab_focus()
+			focused.emit(self)
+
+
+func _on_result_page_gui_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+			focused.emit(self)

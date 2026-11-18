@@ -272,6 +272,8 @@ unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_l0khr")
 speed_scale = 10.0
 
+[connection signal="gui_input" from="HomePage" to="." method="_on_home_page_gui_input"]
 [connection signal="text_submitted" from="HomePage/VBoxContainer/SearchBar" to="." method="_on_search_bar_text_submitted"]
+[connection signal="gui_input" from="ResultPage" to="." method="_on_result_page_gui_input"]
 [connection signal="pressed" from="ResultPage/ScrollContainer/MarginContainer/VBoxContainer/HomeButton" to="." method="_on_home_button_pressed"]
 [connection signal="meta_clicked" from="ResultPage/ScrollContainer/MarginContainer/VBoxContainer/PageText" to="." method="_on_page_text_meta_clicked"]
